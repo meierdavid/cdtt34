@@ -33,6 +33,7 @@ class Administrateur extends ADMINISTRATOR_Controller
             $data['admin'] = $this->admin_model->findAll();
             $this->layout->view('admin/index',$data);
 	}
+       
         /*
         public function connexion()
         {

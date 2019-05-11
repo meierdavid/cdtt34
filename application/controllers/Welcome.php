@@ -11,10 +11,6 @@ class Welcome extends ADMINISTRATOR_Controller {
                 $this->load->helper(array('url', 'assets'));
                 $this->load->library('encrypt');
                 $this->load->library('layout');
-                $this->layout->ajouter_css('bootstrap');
-                $this->layout->ajouter_css('bootstrap.min');
-                $this->layout->ajouter_js('bootstrap.min');
-                $this->layout->ajouter_js('bootstrap');
                 
 	}
 	public function index()

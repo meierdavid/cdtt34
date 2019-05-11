@@ -10,8 +10,8 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
+                                        <table class="table table-striped table-bordered ">
+                                            <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
                                                     <?php if($isAdmin){?>
@@ -35,7 +35,7 @@
                                         </table>
                                     </div>
                                     <?php if($isAdmin){?>
-                                    <div><a class="btn btn-primary" href="<?php echo base_url('tournoi/create')?>" role="button">Créer un tournoi</a></div>
+                                    <div class="text-center mb-3"><a class="btn btn-primary" href="<?php echo base_url('tournoi/create')?>" role="button">Créer un tournoi</a></div>
                                     <?php }?>
                                 </article>
                             </div>

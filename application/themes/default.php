@@ -21,7 +21,7 @@
                 <link rel="stylesheet" href="<?php echo base_url("assets/css/easy-autocomplete.min.css"); ?>"> 
                 <body>
                     <div>
-                        <header class="navbar navbar-expand navbar-light flex-column  bd-navbar">
+                        <header class="navbar navbar-expand navbar-light flex-column navbar navbar-dark bg-dark bd-navbar">
                             <div class="navbar-nav-scroll">
                                 <ul class="navbar-nav bd-navbar-nav flex-row">
                                     <li class="nav-item">

@@ -12,8 +12,31 @@ class User_model extends MY_Model{
         
         
     }
-    public function findName($term){
-        return $this->db->select('nomUser')->from($this->table)->like('nomUser', $term)->get()->result();
+    public function findLastName(){
+        return $this->db->select('nomUser')->from($this->table)->get()->result();
+   
+    }
+    public function findFirstName(){
+       return $this->db->select('prenomUser')->from($this->table)->get()->result(); 
+       
+    }
+    public function valid_lastName($nom){
+        $nom =  $this->db->get_where($this->table, ['nomUser' => $nom])->result();
+        if($nom != NULL){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
+    public function valid_firstName($prenom){
+        $prenom =  $this->db->get_where($this->table, ['prenomUser' => $prenom])->result();
+        if($prenom != NULL){
+            return true;
+        }
+        else{
+            return false;
+        } 
     }
         
 }

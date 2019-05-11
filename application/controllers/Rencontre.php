@@ -23,7 +23,8 @@ class Rencontre extends ADMINISTRATOR_Controller
 	}
         
         public function liste()
-	{           
+	{      
+            $data['isAdmin'] = parent::isAdmin();
             $data['rencontre'] = $this->rencontre_model->findAll();
             $this->layout->view('rencontre/liste',$data);
 	}
@@ -38,12 +39,10 @@ class Rencontre extends ADMINISTRATOR_Controller
         public function create(){
             $data['isAdmin'] = parent::isAdmin();
             $this->load->model('tournoi_model');
+            $this->load->model('user_model');
             $coeff = 1; // coefficient des points suivant le tournoi
-            if(isset($_POST['tournoi'])){
-                $values = ['numGagnant' =>htmlspecialchars($_POST['numGagnant']),
-                            'numPerdant' => htmlspecialchars($_POST['numPerdant']),
-                            'date' => htmlspecialchars($_POST['date']),
-                    ];
+            if(isset($_POST['nomTournoi'])){
+                var_dump("SwiTCH");
                 switch ($_POST['nomTournoi']):
                     case 'nationaux':
                         $coeff = 3;
@@ -56,7 +55,40 @@ class Rencontre extends ADMINISTRATOR_Controller
                 endswitch;
                 
             }
+            
             $this->form_validation->set_rules('date', 'date', 'required');
+            $this->form_validation->set_rules(
+            'nomGagnant', 'nomGagnant',
+            array(
+                'required',
+                array('mauvaisNomGagnant',array($this->user_model, 'valid_lastName'))
+                ),
+            array('mauvaisNomGagnant' => 'Ce nom n\'existe pas. '));
+            
+            $this->form_validation->set_rules(
+            'prenomGagnant', 'prenomGagnant',
+            array(
+                'required',
+                array('mauvaisPrenomGagnant',array($this->user_model, 'valid_firstName'))
+                ),
+            array('mauvaisPrenomGagnant' => 'Ce prénom n\'existe pas.  '));
+            
+            $this->form_validation->set_rules(
+            'nomPerdant', 'nomPerdant',
+            array(
+                'required',
+                array('mauvaisNomPerdant',array($this->user_model, 'valid_lastName'))
+                ),
+            array('mauvaisNomPerdant' => 'Ce nom n\'existe pas. '));
+            
+            $this->form_validation->set_rules(
+            'prenomPerdant', 'prenomPerdant',
+            array(
+                'required',
+                array('mauvaisPrenomPerdant',array($this->user_model, 'valid_firstName'))
+                ),
+            array('mauvaisPrenomPerdant' => 'Ce prénom n\'existe pas.  '));
+
             if ($this->form_validation->run() == FALSE) {           
                 $this->layout->view('rencontre/create',$data);
             }

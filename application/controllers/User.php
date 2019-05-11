@@ -114,11 +114,14 @@ class User extends ADMINISTRATOR_Controller
             }
         }
         
-        public function findName(){
-            //$term = $_GET['term'];
+        public function findLastName(){
             
-            $term = 'lap';
-            $names = $this->user_model->findName($term);
+            $names = $this->user_model->findLastName();
+            echo json_encode($names);
+            
+        }
+         public function findFirstName(){
+            $names = $this->user_model->findFirstName();
             echo json_encode($names);
             
         }
