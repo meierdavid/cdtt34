@@ -31,6 +31,16 @@ class User extends ADMINISTRATOR_Controller
             $this->load->model('rencontre_model');
             $data['gagnant'] = $this->rencontre_model->find(['numGagnant' => $id]);
             $data['perdant'] = $this->rencontre_model->find(['numPerdant' => $id]);
+            
+            // faire une seule requete pour trouver tous les match et les sort par date 
+            //pour ensuite les afficher dans la vue correctement 
+            //avec Date nomGagnant pointGagnant point Perdant Perdant
+            // chaque joueurs est clickable
+            //voir si on affiche les tournoi ou pas ...
+            
+            
+           
+            
             $this->layout->view('user/profil',$data);
             
 	}

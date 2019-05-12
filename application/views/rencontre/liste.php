@@ -10,7 +10,7 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered ">
+                                        <table id="table" class="table table-striped table-bordered ">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
@@ -63,4 +63,11 @@
         else
             return false;
     }
+    
+       $(document).ready(function () {
+        $('#table').DataTable({
+            "searching": true // false to disable search (or any other option)
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
 </script>

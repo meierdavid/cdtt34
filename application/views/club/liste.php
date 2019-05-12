@@ -10,35 +10,36 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table class=" table table-striped table-bordered ">
+                                        <table  id="table" class=" table table-striped table-bordered ">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
-                                                    <?php if($isAdmin){?>
-                                                    <th   scope="col">Supprimer</th>
-                                                    <th scope="col">Modifier</th>
-                                                    <?php }?>
+                                                    <?php if ($isAdmin) { ?>
+                                                        <th   scope="col">Supprimer</th>
+                                                        <th scope="col">Modifier</th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <?php foreach ($club as $item) { ?>
-                                                    
+
                                                         <td><?php echo $item->nomClub; ?></td>
-                                                        <?php if($isAdmin){?>
-                                                        <td><p><a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())">Supprimer le club</a></p></td>
-                                                        <td><p><a href="<?php echo base_url("club/update/" . $item->numClub); ?>">modifier</a></p></td>
-                                                    <?php } ?>
-                                                </tr>
+                                                        <?php if ($isAdmin) { ?>
+                                                        <td>
+                                                    <a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())">Supprimer le club</a></td>
+                                                    <td><a href="<?php echo base_url("club/update/" . $item->numClub); ?>">modifier</a></td>
                                                 <?php } ?>
+                                                </tr>
+                                            <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <?php if($isAdmin){?>
-                                    <div class="text-center mb-3">
-                                        <a class="btn btn-primary " href="<?php echo base_url('club/create');?>" role="button">Créer un club</a>
-                                    </div>
-                                     <?php } ?>
+                                    <?php if ($isAdmin) { ?>
+                                        <div class="text-center mb-3">
+                                            <a class="btn btn-primary " href="<?php echo base_url('club/create'); ?>" role="button">Créer un club</a>
+                                        </div>
+                                    <?php } ?>
                                 </article>
                             </div>
                         </div>
@@ -46,7 +47,7 @@
                 </div>
             </div>
 
-          
+
 
         </div>
     </div>
@@ -57,12 +58,18 @@
 <script>
     function validate()
     {
-        
-     
+
+
         var r = confirm(" êtes-vous sur de supprimer ce club ?")
         if (r == true)
             return true;
         else
             return false;
     }
+    $(document).ready(function () {
+        $('#table').DataTable({
+            "searching": true // false to disable search (or any other option)
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
 </script>
