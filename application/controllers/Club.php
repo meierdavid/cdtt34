@@ -24,8 +24,18 @@ class Club extends ADMINISTRATOR_Controller
         
         public function liste()
 	{           
+            $this->load->model('departement_model');
             $data['isAdmin'] = parent::isAdmin();
             $data['club'] = $this->club_model->findAll();
+            $i=0;
+            foreach ($data['club'] as $item){
+                $departement = $this->departement_model->find(['numDepartement' => $item->numDepartement]);
+                $data['departements'][$i]['nomDepartement'] = $departement[0]->nomDepartement;
+                $data['departements'][$i]['numDepartement'] = $departement[0]->numDepartement;
+                
+                $i++;
+            }
+            
             $this->layout->view('club/liste',$data);
 	}
          public function findAll()
@@ -43,13 +53,19 @@ class Club extends ADMINISTRATOR_Controller
 	}
         
         public function create(){
+            $this->load->model('departement_model');
             $data['isAdmin'] = parent::isAdmin();
             $this->form_validation->set_rules('nomClub', 'Club', 'required');
             if ($this->form_validation->run() == FALSE) {           
                 $this->layout->view('club/create',$data);
             }
+            
             else{
-                $values = ['nomClub' =>htmlspecialchars($_POST['nomClub'])];
+                $departement = $this->departement_model->find(['nomDepartement' => htmlspecialchars($_POST['nomDepartement'])]);
+                $numDepartement = $departement[0]->numDepartement;
+                $values = ['nomClub' =>htmlspecialchars($_POST['nomClub']),
+                            'numDepartement' => $numDepartement,
+                           ];
                 $test = $this->club_model->create($values);
                 if($test){
                     $this->liste();
