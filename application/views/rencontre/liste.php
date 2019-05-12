@@ -26,7 +26,7 @@
                                                     
                                                         <td><?php echo $item->numGagnant; ?></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a href="<?php echo base_url("rencontre/delete/" . $item->numRencontre); ?>">Supprimer le rencontre</a></p></td>
+                                                        <td><p><a id="suprimer" href="<?php echo base_url("rencontre/delete/" . $item->numRencontre); ?>" onclick="return(validate())">Supprimer le rencontre</a></p></td>
                                                         <td><p><a href="<?php echo base_url("rencontre/update/" . $item->numRencontre); ?>">modifier</a></p></td>
                                                     <?php }?>
                                                 </tr>
@@ -51,4 +51,16 @@
 </div>
 
 
-
+<script>
+    function validate()
+    {
+        
+     
+        var r = confirm(" êtes-vous sur de supprimer ce match ?\n\
+                            Attention les classements des joueurs ne sont pas réinitialisé")
+        if (r == true)
+            return true;
+        else
+            return false;
+    }
+</script>

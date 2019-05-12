@@ -33,7 +33,7 @@
                                                         <td><?php echo $item->classementUser; ?></td>
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a href="<?php echo base_url("User/delete/" . $item->idUser); ?>">Supprimer le client</a></p></td>
+                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())">Supprimer le client</a></p></td>
                                                         <?php } ?>
                                                         <td><p><a href="<?php echo base_url("User/profil/" . $item->idUser); ?>">Voir le profil</a></p></td>
                                                         
@@ -61,4 +61,15 @@
 </div>
 
 
-
+<script>
+    function validate()
+    {
+        
+     
+        var r = confirm(" êtes-vous sur de supprimer ce joueur ?")
+        if (r == true)
+            return true;
+        else
+            return false;
+    }
+</script>

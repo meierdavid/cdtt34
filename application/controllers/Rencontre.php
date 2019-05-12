@@ -41,8 +41,10 @@ class Rencontre extends ADMINISTRATOR_Controller
             $this->load->model('tournoi_model');
             $this->load->model('user_model');
             $coeff = 1; // coefficient des points suivant le tournoi
+            
             if(isset($_POST['nomTournoi'])){
-                var_dump("SwiTCH");
+                 $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($_POST['nomTournoi'])])[0]->numTournoi;
+                
                 switch ($_POST['nomTournoi']):
                     case 'nationaux':
                         $coeff = 3;
@@ -101,8 +103,7 @@ class Rencontre extends ADMINISTRATOR_Controller
                 $points = $this->CalculPoints($_POST['numGagnant'],$_POST['numPerdant'],$coeff);
                 $values['pointGagnant'] = $points['pointGagnant'];
                 $values['pointPerdant'] = $points['pointPerdant'];
-                $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($_POST['nomTournoi'])])[0]->numTournoi;
-                
+               
                 //MODIFIER LES POINTS DES JOUEURS
                 
                 $test = $this->rencontre_model->create($values);

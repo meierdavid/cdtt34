@@ -40,7 +40,7 @@ class Tournoi extends ADMINISTRATOR_Controller
             $data['isAdmin'] = parent::isAdmin();
             $this->form_validation->set_rules('nomTournoi', 'nom du tournoi', 'required');
             if ($this->form_validation->run() == FALSE) {           
-                $this->layout->view('tournoi/create');
+                $this->layout->view('tournoi/create',$data);
             }
             else{
                 $values = ['nomTournoi' =>htmlspecialchars($_POST['nomTournoi'])];
@@ -49,7 +49,7 @@ class Tournoi extends ADMINISTRATOR_Controller
                     $this->liste();
                 }
                 else{
-                    $this->layout->view('tournoi/create');
+                    $this->layout->view('tournoi/create',$data);
                 }
             }
             

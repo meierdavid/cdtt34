@@ -10,12 +10,12 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table class=" table table-striped table-bordered table-responsive-md table-responsive-sm">
+                                        <table class=" table table-striped table-bordered ">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
                                                     <?php if($isAdmin){?>
-                                                    <th scope="col">Supprimer</th>
+                                                    <th   scope="col">Supprimer</th>
                                                     <th scope="col">Modifier</th>
                                                     <?php }?>
                                                 </tr>
@@ -26,7 +26,7 @@
                                                     
                                                         <td><?php echo $item->nomClub; ?></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a href="<?php echo base_url("club/delete/" . $item->numClub); ?>">Supprimer le club</a></p></td>
+                                                        <td><p><a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())">Supprimer le club</a></p></td>
                                                         <td><p><a href="<?php echo base_url("club/update/" . $item->numClub); ?>">modifier</a></p></td>
                                                     <?php } ?>
                                                 </tr>
@@ -54,3 +54,15 @@
 
 
 
+<script>
+    function validate()
+    {
+        
+     
+        var r = confirm(" êtes-vous sur de supprimer ce club ?")
+        if (r == true)
+            return true;
+        else
+            return false;
+    }
+</script>

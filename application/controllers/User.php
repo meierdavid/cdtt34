@@ -28,8 +28,13 @@ class User extends ADMINISTRATOR_Controller
 	{           
             $data['isAdmin'] = parent::isAdmin();
             $data['user'] = $this->user_model->find(['idUser' => $id]);
+            $this->load->model('rencontre_model');
+            $data['gagnant'] = $this->rencontre_model->find(['numGagnant' => $id]);
+            $data['perdant'] = $this->rencontre_model->find(['numPerdant' => $id]);
             $this->layout->view('user/profil',$data);
+            
 	}
+       
         public function create()
 	{   
             $data['isAdmin'] = parent::isAdmin();
@@ -72,6 +77,7 @@ class User extends ADMINISTRATOR_Controller
         
         public function update($id)
 	{   
+            $data['isAdmin'] = parent::isAdmin();
             $this->form_validation->set_rules('nomUser', 'Nom', 'required');
             $this->form_validation->set_rules('prenomUser', 'Prénom', 'required');
             $this->form_validation->set_rules('classementUser', 'Classement', 'required|greater_than[4]|less_than[16]');

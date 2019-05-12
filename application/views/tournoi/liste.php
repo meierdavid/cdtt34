@@ -26,7 +26,7 @@
                                                     
                                                         <td><?php echo $item->nomTournoi; ?></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a href="<?php echo base_url("tournoi/delete/" . $item->numTournoi); ?>">Supprimer le tournoi</a></p></td>
+                                                        <td><p><a id="supprimer" href="<?php echo base_url("tournoi/delete/" . $item->numTournoi); ?>" onclick="return(validate())">Supprimer le tournoi</a></p></td>
                                                         <td><p><a href="<?php echo base_url("tournoi/update/" . $item->numTournoi); ?>">modifier</a></p></td>
                                                         <?php }?>
                                                 </tr>
@@ -51,4 +51,15 @@
 </div>
 
 
-
+<script>
+    function validate()
+    {
+        
+     
+        var r = confirm(" êtes-vous sur de supprimer ce tournoi ?")
+        if (r == true)
+            return true;
+        else
+            return false;
+    }
+</script>
