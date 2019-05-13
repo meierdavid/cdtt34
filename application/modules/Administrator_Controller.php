@@ -25,7 +25,8 @@ class ADMINISTRATOR_Controller extends CI_Controller {
         $this->load->helper(array('url', 'assets'));
         $this->load->model('user_model');
         $this->load->library('layout');
-       $route = $this->router->fetch_method();
+       $method= $this->router->fetch_method();
+       $class= $this->router->fetch_class();
         if ($this->input->post('identifiant', TRUE) && $this->input->post('password', TRUE)) 
         {
             if ($this->administrator_model->validate($this->input->post('identifiant'), $this->input->post('password')))
@@ -61,7 +62,10 @@ class ADMINISTRATOR_Controller extends CI_Controller {
             if ($this->administrator_model->validate($mail, $password) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
-         elseif(($route != "connexion" )&& ($route != 'liste') && ($route != 'index') && ($route != 'fail') && ($route != 'profil') && ($route != 'clubs')){
+        elseif($class == 'administrateur' ){
+            redirect(base_url('admin/connexion/fail'));
+        }
+         elseif(($method!= "connexion" )&& ($method!= 'liste') && ($method!= 'index') && ($method!= 'fail') && ($method!= 'profil') && ($method!= 'clubs')){
             redirect(base_url('admin/connexion/fail'));
         }
     

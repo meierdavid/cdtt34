@@ -30,10 +30,18 @@ class Administrateur extends ADMINISTRATOR_Controller
         public function liste()
 	{    
             $data['isAdmin'] = parent::isAdmin();
-            $data['admin'] = $this->admin_model->findAll();
-            $this->layout->view('admin/index',$data);
+            $data['administrateur'] = $this->admin_model->findAll();
+            $this->layout->view('administrateur/liste',$data);
 	}
-       
+        
+       public function profil()
+	{           
+            $data['isAdmin'] = parent::isAdmin();
+            $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
+            $data['administrateur'] = $this->admin_model->find(['mail' => $mail]);
+            
+            $this->layout->view('administrateur/profil',$data);
+	}
         /*
         public function connexion()
         {
