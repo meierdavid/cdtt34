@@ -27,11 +27,15 @@
                 <label class="control-label">Classement provisoire du joueur</label>
                 <input type="numeric" class="form-control" name="classementProvisoireUser"  value="<?php echo $user[0]->classementProvisoireUser ?>" size="30" required /> 
             </div>
+             <div class="form-group">
+             <label class="h4" for="dateDeNaissance">date de naissance :</label>
+             <input id="dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="<?php echo $user[0]->dateDeNaissance ?>">
+            </div>
             <div class="form-group">
                 <label class="control-label">Club du joueur</label>
                 <input type="text" class="form-control" name="numClub"  value="<?php echo $user[0]->numClub ?>" size="30" required /> 
             </div>
-
+            
             <div class="text-center"><input class="btn-primary" type="submit" value="créer" /></div>
 
        </form>  

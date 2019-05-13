@@ -26,7 +26,11 @@
                 <label class="control-label">Classement provisoire du joueur</label>
                 <input type="numeric" class="form-control" name="classementProvisoireUser"  value="" size="30" required /> 
             </div>
-            <div id="select-club">
+            <div class="form-group">
+             <label class="h4" for="dateDeNaissance">date de naissance :</label>
+             <input id="dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="">
+            </div>
+             <div id="select-club">
                 
      
             </div>

@@ -17,6 +17,7 @@
                                                     <th scope="col">Prénom</th>
                                                     <th scope="col">Classement début de saison</th>
                                                     <th scope="col">Classement actuel</th>
+                                                    <th scope="col">Date de naissance</th>
                                                     <th scope="col">Club</th>
                                                     
                                                     <?php if($isAdmin){?>
@@ -25,15 +26,16 @@
                                                     <th scope="col">Profil</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody><?php $i=0;foreach ($user as $item) { ?>
                                                 <tr>
-                                                    <?php $i=0;foreach ($user as $item) { ?>
+                                                    
                                                         <td><?php echo $item->idUser; ?></td>
                                                         <td><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->nomUser; ?></a></td>
                                                         <td ><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->prenomUser; ?></a></td>
                                                         <td><?php echo $item->classementUser; ?></td>
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
-                                                        <td><?php echo $clubs[$i]['nomClub'] ?></td>
+                                                        <td><?php echo $item->dateDeNaissance; ?></td>
+                                                        <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
                                                         <?php if($isAdmin){?>
                                                         <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())">Supprimer le client</a></p></td>
                                                         <?php } ?>

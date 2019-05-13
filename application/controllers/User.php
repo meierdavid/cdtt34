@@ -102,6 +102,7 @@ class User extends ADMINISTRATOR_Controller
                 'classementUser' => htmlspecialchars($_POST['classementUser']),
                 'classementProvisoireUser' => htmlspecialchars($_POST['classementProvisoireUser']),
                 'numClub' => $numClub,
+                'dateDeNaissance' => htmlspecialchars($_POST['dateDeNaissance']),
                 ];
                 $test = $this->user_model->create($values);
                 if($test){
@@ -134,6 +135,8 @@ class User extends ADMINISTRATOR_Controller
                 'classementUser' => htmlspecialchars($_POST['classementUser']),
                 'classementProvisoireUser' => htmlspecialchars($_POST['classementProvisoireUser']),
                 'numClub' => htmlspecialchars($_POST['numClub']),
+                'dateDeNaissance' => htmlspecialchars($_POST['dateDeNaissance']),
+                 
                 ]);
                 if($test){
                     $this->profil($id);
