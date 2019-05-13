@@ -21,7 +21,7 @@
                                             <tbody> 
                                                 <?php foreach ($clubs as $item) { ?>
                                                     <tr>
-                                                        <td><?php echo $item->nomClub; ?></td>
+                                                        <td><a  href="<?php echo base_url("club/joueurs/" . $item->numClub); ?>"><?php echo $item->nomClub; ?></a></td>
                                                         <td> attributs nombre de joueurs à rajouter</td>
 
                                                     </tr>

@@ -114,5 +114,13 @@ class Club extends ADMINISTRATOR_Controller
             }
         }
         
-        
+     public function joueurs($id)
+	{    
+            
+            $this->load->model("user_model");
+            $data['isAdmin'] = parent::isAdmin();
+            $data['club'] = $this->club_model->find(['numClub' => $id]);
+            $data['joueurs'] = $this->user_model->find(['numClub' => $id]);
+            $this->layout->view('club/profil',$data);
+	}
 }
