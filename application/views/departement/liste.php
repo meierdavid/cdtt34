@@ -30,7 +30,8 @@
                                                         <td><?php echo $item->numeroDepartement; ?></td>
                                                         <?php if ($isAdmin) { ?>
                                                         <td>
-                                                    <a id="supprimer" href="<?php echo base_url("departement/delete/" . $item->numDepartement); ?>" onclick="return(validate())">Supprimer le departement</a></td>
+                                                    <a id="supprimer" href="<?php echo base_url("departement/delete/" . $item->numDepartement); ?>" onclick="return(validate())">Supprimer le departement</a>
+                                                        </td>
                                                     <td><a href="<?php echo base_url("departement/update/" . $item->numDepartement); ?>">modifier</a></td>
                                                 <?php } ?>
                                                     <td><p><a href="<?php echo base_url("departement/clubs/" . $item->numDepartement); ?>">Voir les clubs</a></p></td>

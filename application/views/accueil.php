@@ -1,8 +1,9 @@
-<h1>Bienvenue sur la page d'accueil du best projet web</h1>
+<footer class="page-footer font-small blue">
 
-<?php
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
 
-
-
-
-?>
+</footer>
