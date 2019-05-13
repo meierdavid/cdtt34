@@ -26,7 +26,24 @@ class Rencontre extends ADMINISTRATOR_Controller
 	{      
             $data['isAdmin'] = parent::isAdmin();
             $data['rencontre'] = $this->rencontre_model->findAll();
+            $i = 0;
+     
+            foreach ($data['rencontre'] as $item){
+               $perdant = $this->user_model->find(['idUser' => $item->numPerdant]);
+               $vainqueur = $this->user_model->find(['idUser' => $item->numGagnant]);
+               $data['historique'][$i]['numRencontre'] = $item->numRencontre;
+               $data['historique'][$i]['date'] = $item->date;
+               $data['historique'][$i]['nomPerdant'] = $perdant[0]->prenomUser . " " . $perdant[0]->nomUser;
+               $data['historique'][$i]['nomGagnant'] = $vainqueur[0]->prenomUser . " " .$vainqueur[0]->nomUser;
+               $data['historique'][$i]['pointGagnant'] = $item->pointGagnant;
+               $data['historique'][$i]['pointPerdant'] = $item->pointPerdant;
+               $data['historique'][$i]['numPerdant'] = $item->numPerdant;
+               $data['historique'][$i]['numGagnant'] = $item->numGagnant;
+               $i++;
+            }
+           
             $this->layout->view('rencontre/liste',$data);
+            
 	}
         
         public function profil($id)
@@ -143,6 +160,25 @@ class Rencontre extends ADMINISTRATOR_Controller
         
         public function delete($id){
             $data['isAdmin'] = parent::isAdmin();
+            $rencontre = $this->rencontre_model->find(['numRencontre' => $id]);
+   
+            //upload des points du classement des joueurs de cette rencontre
+            $gagnant = $this->user_model->find(['idUser' =>$rencontre[0]->numGagnant]);
+            $perdant = $this->user_model->find(['idUser' =>$rencontre[0]->numPerdant]);
+       
+            $gagnant[0]->classementProvisoireUser -= $rencontre[0]->pointGagnant;
+            $perdant[0]->classementProvisoireUser -= $rencontre[0]->pointPerdant;
+
+            $test = $this->user_model->update(
+                ['idUser' =>$rencontre[0]->numGagnant],
+                ['classementProvisoireUser' => $gagnant[0]->classementProvisoireUser
+                ]);
+            $test = $this->user_model->update(
+                [ 'idUser' => $rencontre[0]->numPerdant] ,
+                ['classementProvisoireUser' => $perdant[0]->classementProvisoireUser
+                ]);
+            
+                    
             $test = $this->rencontre_model->delete(['numRencontre' => $id]);
             if($test){
                 //delete ok
