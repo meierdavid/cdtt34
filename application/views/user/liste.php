@@ -9,7 +9,7 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table id="table" class="table table-striped table-bordered ">
+                                        <table id="table" class="table table-striped table-bordered text-center">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Licence</th>
@@ -23,7 +23,7 @@
                                                     <?php if($isAdmin){?>
                                                     <th scope="col">Supprimer</th>
                                                     <?php } ?>
-                                                    <th scope="col">Profil</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody><?php $i=0;foreach ($user as $item) { ?>
@@ -37,9 +37,8 @@
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())">Supprimer le client</a></p></td>
+                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png");?>"></a></p></td>
                                                         <?php } ?>
-                                                        <td><p><a href="<?php echo base_url("User/profil/" . $item->idUser); ?>">Voir le profil</a></p></td>
                                                         
                                                 </tr>
                                                 <?php

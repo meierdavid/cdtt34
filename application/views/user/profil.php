@@ -8,10 +8,7 @@
             <th scope="col">Classement début de saison</th>
             <th scope="col">Classement actuel</th>
             <th scope="col">Date de Naissance</th>
-            <?php if ($isAdmin) { ?>
-                <th scope="col">Supprimer</th>
-                <th scope="col">Modifier</th>
-            <?php } ?>
+
         </tr>
     </thead>
     <tbody> 
@@ -22,10 +19,6 @@
             <td><?php echo $user[0]->classementUser; ?></td>
             <td><?php echo $user[0]->classementProvisoireUser; ?></td>
             <td><?php echo $user[0]->dateDeNaissance; ?></td>
-            <?php if ($isAdmin) { ?>
-                <td><p><a href="<?php echo base_url("User/delete/" . $user[0]->idUser); ?>">Supprimer le client</a></p></td>
-                <td><p><a href="<?php echo base_url("User/update/" . $user[0]->idUser); ?>">Modifier le client</a></p></td>
-            <?php } ?>
         </tr>
     </tbody>
 </table>

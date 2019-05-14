@@ -10,7 +10,7 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table  id="table" class=" table table-striped table-bordered ">
+                                        <table  id="table" class=" table table-striped table-bordered text-center ">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
@@ -31,8 +31,8 @@
                                                         <td><a href="<?php echo base_url("departement/clubs/" . $departements[$i]['numDepartement']); ?>"><?php echo $departements[$i]['nomDepartement'] ?></a></td>
                                                         <?php if ($isAdmin) { ?>
                                                         <td>
-                                                    <a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())">Supprimer le club</a></td>
-                                                    <td><a href="<?php echo base_url("club/update/" . $item->numClub); ?>">modifier</a></td>
+                                                    <a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png")?>"></a></td>
+                                                        <td><a href="<?php echo base_url("club/update/" . $item->numClub); ?>"><img src="<?php echo base_url("assets/image/update.png")?>"></a></td>
                                                 <?php } ?>
                                                 </tr>
                                             <?php 

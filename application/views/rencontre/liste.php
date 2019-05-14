@@ -11,7 +11,7 @@
                                 <div class="row">
                                     <article class=" col-md-11 col-lg-11">
                                         <div class="table-responsive">
-                                            <table id="table" class="table table-striped table-bordered ">
+                                            <table id="table" class="table table-striped table-bordered  text-center">
                                                 <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">Date</th>
@@ -38,7 +38,7 @@
                                                     <td><a href="<?php echo base_url("User/profil/" . $item['numPerdant']); ?>"><?php echo $item['nomPerdant'] ?></a></td>
                                                     <td><?php echo $item['pointPerdant']; ?></td>
                                                     <td>
-                                                        <a id="supprimer" href="<?php echo base_url("rencontre/delete/" . $item['numRencontre']); ?>" onclick="return(validate())">Supprimer la rencontre</a>
+                                                        <a id="supprimer" href="<?php echo base_url("rencontre/delete/" . $item['numRencontre']); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png")?>"></a>
                                                     </td>
                                                     
                                                     </tr>

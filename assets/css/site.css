@@ -1,11 +1,40 @@
-header {
-    background-color: #DEFAFB;
+@media screen and (min-width: 200px) and (max-width: 640px) {
+    #accueil{
+    margin-top: 5em;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 769px) {
+    #accueil{
+    margin-left: 5em;
+    margin-top: 10em;
+    }
+}
+@media screen and (min-width: 780px) and (max-width: 920px) {
+    #accueil{
+    margin-left: 20em;
+    margin-top: 10em;
+    }
 }
 
-footer{
-    
-     background-color: #DEFAFB;
 
-    
-     
+@media screen and (max-width: 980px) {
+    #accueil{
+    margin-left: 5em;
+    margin-top: 3em;
+    }
 }
+@media screen and (min-width: 981px) {
+    #accueil{
+    margin-left: 20em;
+    margin-top: 6em;
+    }
+}
+    
+
+
+body {
+  background-image: url('../image/ping-pong.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+

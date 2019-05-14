@@ -27,7 +27,7 @@
                 <input type="numeric" class="form-control" name="classementProvisoireUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-             <label class="h4" for="dateDeNaissance">date de naissance :</label>
+             <label class="control-label" for="dateDeNaissance">date de naissance :</label>
              <input id="dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="">
             </div>
              <div id="select-club">
@@ -57,7 +57,7 @@
                 dataType : 'json',
                 success : function(data){
                     
-                    var html = '<label for="select-club">Choisir un club </label>';
+                    var html = '<label for="select-club">Choisir un club :</label>';
                     html += '<select name="nomClub" id="select-club" required >';
                     html += '<option value="">--Selectionner un club--</option>';
                     var i;

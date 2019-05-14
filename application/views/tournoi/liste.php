@@ -10,7 +10,7 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table id="table" class="table table-striped table-bordered ">
+                                        <table id="table" class="table table-striped table-bordered text-center ">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
@@ -26,8 +26,8 @@
                                                     
                                                         <td><?php echo $item->nomTournoi; ?></td>
                                                         <?php if($isAdmin){?>
-                                                        <td><p><a id="supprimer" href="<?php echo base_url("tournoi/delete/" . $item->numTournoi); ?>" onclick="return(validate())">Supprimer le tournoi</a></p></td>
-                                                        <td><p><a href="<?php echo base_url("tournoi/update/" . $item->numTournoi); ?>">modifier</a></p></td>
+                                                        <td><p><a id="supprimer" href="<?php echo base_url("tournoi/delete/" . $item->numTournoi); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png");?>"></a></p></td>
+                                                        <td><p><a href="<?php echo base_url("tournoi/update/" . $item->numTournoi); ?>"><img src="<?php echo base_url("assets/image/update.png");?>"></a></p></td>
                                                         <?php }?>
                                                 </tr>
                                                 <?php } ?>

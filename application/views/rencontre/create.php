@@ -28,18 +28,12 @@
             </div>
 
 
-
-
-            <div class=' row mb-3'>
-                <div class="col-sm-6 col-lg-6 col-md-6" >
+            <div class="row mb-3 mb-3">
+               
+                <div id="saisie-gagnant" class="col-sm-6 col-lg-6 col-md-6 bg-light   border-white border-right">
+                     <div class="" >
                     <h1 class="text-success">Gagnant</h1>
                 </div>
-                <div class="col-sm-6 col-lg-6 col-md-6" >
-                    <h1 class="text-danger">Perdant</h1>
-                </div>
-            </div>
-            <div class="row mb-3 mb-3">
-                <div id="saisie-gagnant" class="col-sm-6 col-lg-6 col-md-6 bg-light   border-white border-right">
                     <label  class="control-label">Licence</label>
 
                     <input type="number" class="form-control " name="numGagnant"  value="<?php echo set_value('numGagnant'); ?>" size="30" required />
@@ -52,8 +46,11 @@
                     <div class="error notification text-danger is-danger"><?php echo form_error('prenomGagnant'); ?> </div>
                 </div>
 
-
+                
                 <div class="col-sm-6 col-lg-6 col-md-6 bg-light" >
+                    <div class="col-sm-6 col-lg-6 col-md-6" >
+                    <h1 class="text-danger">Perdant</h1>
+                    </div>
                     <label class="control-label">Licence</label>
                     <input type="number" class="form-control" name="numPerdant"  value="<?php echo set_value('numPerdant'); ?>" size="30" required />
                     <label class="control-label">Nom</label>

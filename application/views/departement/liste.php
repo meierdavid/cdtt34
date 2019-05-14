@@ -10,7 +10,7 @@
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
-                                        <table  id="table" class=" table table-striped table-bordered ">
+                                        <table  id="table" class=" table table-striped table-bordered  text-center">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
@@ -30,9 +30,9 @@
                                                         <td><?php echo $item->numeroDepartement; ?></td>
                                                         <?php if ($isAdmin) { ?>
                                                         <td>
-                                                    <a id="supprimer" href="<?php echo base_url("departement/delete/" . $item->numDepartement); ?>" onclick="return(validate())">Supprimer le departement</a>
+                                                    <a id="supprimer" href="<?php echo base_url("departement/delete/" . $item->numDepartement); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png")?>"></a>
                                                         </td>
-                                                    <td><a href="<?php echo base_url("departement/update/" . $item->numDepartement); ?>">modifier</a></td>
+                                                    <td><a href="<?php echo base_url("departement/update/" . $item->numDepartement); ?>"><img src="<?php echo base_url("assets/image/update.png")?>"></a></td>
                                                 <?php } ?>
                                                     <td><p><a href="<?php echo base_url("departement/clubs/" . $item->numDepartement); ?>">Voir les clubs</a></p></td>
                                                        

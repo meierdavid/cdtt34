@@ -62,7 +62,7 @@ class ADMINISTRATOR_Controller extends CI_Controller {
             if ($this->administrator_model->validate($mail, $password) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
-        elseif($class == 'administrateur' ){
+        elseif(($class == 'administrateur') || ($class == 'rencontre')){
             redirect(base_url('admin/connexion/fail'));
         }
          elseif(($method!= "connexion" )&& ($method!= 'liste') && ($method!= 'index') && ($method!= 'fail') && ($method!= 'profil') && ($method!= 'clubs')){
