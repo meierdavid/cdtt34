@@ -76,9 +76,9 @@ $dbheroku = parse_url(getenv('DATABASE_URL'));
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => $dbheroku['host'],
-	'username' => $dbopts["user"],
-	'password' => $dbopts["pass"],
-	'database' => ltrim($dbopts["path"],'/'),
+	'username' => $dbheroku["user"],
+	'password' => $dbheroku["pass"],
+	'database' => ltrim($dbheroku["path"],'/'),
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -93,7 +93,7 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE,
-        'port' => $dbopts["port"],
+        'port' => $dbheroku["port"],
 );
 
 
