@@ -36,9 +36,38 @@ class Administrateur extends ADMINISTRATOR_Controller {
 
         $this->layout->view('administrateur/profil', $data);
     }
-    
-    public function updateMail(){
+    public function delete($id){
+            $data['isAdmin'] = parent::isAdmin();
+            $test = $this->admin_model->delete(['id' => $id]);
+            if($test){
+                //delete ok
+                $this->liste();
+            }
+            else{
+                //delete fail
+                $this->liste();
+            }
+        }
+    public function create(){
+        $data['isAdmin'] = parent::isAdmin();
         
+        $this->form_validation->set_rules("newPassword", "New Password", "required");
+        $this->form_validation->set_rules("newPasswordConfirm", "Confirm Password", "matches[newPassword]|required");
+        if ($this->form_validation->run() == FALSE) {  
+            $this->layout->view('administrateur/create',$data);
+        }
+        else{
+            $values = ['mail' => htmlspecialchars($_POST['mail']),
+            'password' => $this->encrypt->encode(htmlspecialchars($_POST['newPassword'])),
+            ];
+            $test = $this->admin_model->create($values);
+            if($test){
+                $this->liste();
+            }
+            else{
+                $this->layout->view('administrateur/create',$data);
+            }
+        }
     }
     
     public function updateMdp(){

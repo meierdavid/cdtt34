@@ -6,21 +6,21 @@
     <div class="form-group"> 
         <label class=" control-label">Old Password</label> 
         <div class="col-sm-10"> 
-            <input type="password" class="input-group" name="oldPassword" value="<?php echo set_value('oldPassword'); ?>"/>
+            <input type="password" class="input-group" name="oldPassword" value=""/>
             <div class="error notification text-danger is-danger"><?php echo form_error('oldPassword'); ?> </div>
         </div> 
     </div> 
     <div class="form-group"> 
         <label class="control-label">New Password</label> 
         <div class="col-sm-10"> 
-            <input type="password" class="input-group" name="newPassword" value="<?php echo set_value('newPassword'); ?>"/>
+            <input type="password" class="input-group" name="newPassword" value=""/>
             <div class="error notification text-danger is-danger"><?php echo form_error('newPassword'); ?> </div>
         </div> 
     </div> 
     <div class="form-group"> 
         <label class=" control-label">Confirm Password</label> 
         <div class="col-sm-10"> 
-            <input  type="password" class="input-group" name="newPasswordConfirm" value<?php echo set_value('newPasswordConfirm'); ?> />
+            <input  type="password" class="input-group" name="newPasswordConfirm" value=""/>
             <div class="error notification text-danger is-danger"><?php echo form_error('newPasswordConfirm'); ?> </div>
         </div> 
     </div> 
