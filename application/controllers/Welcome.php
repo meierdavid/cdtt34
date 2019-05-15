@@ -1,7 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-include(APPPATH . 'modules/ADMINISTRATOR_Controller.php');
+include(APPPATH . 'modules/Administrator_Controller.php');
 
 class Welcome extends ADMINISTRATOR_Controller {
 
