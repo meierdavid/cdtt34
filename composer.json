@@ -1,0 +1,12 @@
+{
+    "name": "david/cdtt34",
+    "require": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "authors": [
+        {
+            "name": "meierdavid",
+            "email": "davidmeier@hotmail.fr"
+        }
+    ]
+}
