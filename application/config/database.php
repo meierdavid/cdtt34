@@ -72,13 +72,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-$dbheroku = parse_url(getenv('DATABASE_URL'));
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $dbheroku['host'],
-	'username' => $dbheroku["user"],
-	'password' => $dbheroku["pass"],
-	'database' => ltrim($dbheroku["path"],'/'),
+	'hostname' => 'localhost',
+	'username' => getenv('username'),
+	'password' => getenv('password'),
+	'database' => 'cdtt34',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -92,8 +92,7 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE,
-        'port' => $dbheroku["port"],
+	'save_queries' => TRUE
 );
 
 
