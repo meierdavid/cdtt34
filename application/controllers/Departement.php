@@ -23,7 +23,9 @@ class Departement extends ADMINISTRATOR_Controller
 	}
         
         public function liste()
-	{           
+	{
+             phpinfo();
+            die;
             $data['isAdmin'] = parent::isAdmin();
             $data['departement'] = $this->departement_model->findAll();
                 
