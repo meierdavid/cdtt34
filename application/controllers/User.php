@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-include(APPPATH . 'modules/ADMINISTRATOR_Controller.php');
-class User extends ADMINISTRATOR_Controller
+include(APPPATH . 'modules/Administrator.php');
+class User extends Administrator
 {
     
         public function __construct()

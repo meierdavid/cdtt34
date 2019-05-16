@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ADMINISTRATOR_Controller extends CI_Controller {
+class Administrator extends CI_Controller {
     
     private $_cookie = array(
                    // 'name'   => '',
