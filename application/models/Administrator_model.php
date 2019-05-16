@@ -8,7 +8,7 @@ class Administrator_model extends CI_Model {
     private $_table = "admin";
 
     function __construct() {
-        $this->load->library('encrypt');
+        $this->load->library('encryption');
     }
 
     public function validate($mail, $password) {
@@ -20,7 +20,7 @@ class Administrator_model extends CI_Model {
     private function _getAdmin($mail) {
         $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
         if (isset($admin->password))
-            return $this->encrypt->decode($admin->password);
+            return $this->encryption->decrypt($admin->password);
         return false;
     }
 

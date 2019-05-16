@@ -28,22 +28,20 @@ class Administrator extends CI_Controller {
         $this->load->model('user_model');
         $this->load->library('layout');
         $key = bin2hex($this->encryption->create_key(16));
-var_dump($key);
-die;
         $method = $this->router->fetch_method();
         $class = $this->router->fetch_class();
         if ($this->input->post('identifiant', TRUE) && $this->input->post('password', TRUE)) {
             if ($this->administrator_model->validate($this->input->post('identifiant'), $this->input->post('password'))) {
                 $cookies_identifiant = $this->_cookie;
                 $cookies_identifiant['name'] = $this->_cookie_id_name;
-                $cookies_identifiant['value'] = $this->encrypt->encode($this->input->post('identifiant'));
+                $cookies_identifiant['value'] = $this->encryption->encrypt($this->input->post('identifiant'));
                 // $cookies_identifiant['domain'] = "";
                 $cookies_identifiant['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_identifiant);
 
                 $cookies_password = $this->_cookie;
                 $cookies_password['name'] = $this->_cookie_id_password;
-                $cookies_password['value'] = $this->encrypt->encode($this->input->post('password'));
+                $cookies_password['value'] = $this->encryption->encrypt($this->input->post('password'));
                 // $cookies_identifiant['domain'] = "";
                 $cookies_password['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_password);
@@ -56,8 +54,8 @@ die;
             }
         } elseif (get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name, TRUE) &&
                 get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_password, TRUE)) {
-            $mail = $this->encrypt->decode(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name));
-            $password = $this->encrypt->decode(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_password));
+            $mail = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name));
+            $password = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_password));
             if ($this->administrator_model->validate($mail, $password) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
@@ -80,7 +78,7 @@ die;
         $test = $this->input->cookie($this->_cookie_id_name);
         if (isset($test)) {
 
-            $mail = $this->encrypt->decode($this->input->cookie($this->_cookie_id_name));
+            $mail = $this->encryption->decrypt($this->input->cookie($this->_cookie_id_name));
             $this->load->model("Administrator_model");
             return $this->Administrator_model->isAdmin($mail);
         } else {

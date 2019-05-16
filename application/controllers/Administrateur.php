@@ -31,7 +31,7 @@ class Administrateur extends Administrator {
 
     public function profil() {
         $data['isAdmin'] = parent::isAdmin();
-        $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
+        $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $data['administrateur'] = $this->admin_model->find(['mail' => $mail]);
 
         $this->layout->view('administrateur/profil', $data);
@@ -58,7 +58,7 @@ class Administrateur extends Administrator {
             $this->layout->view('administrateur/create', $data);
         } else {
             $values = ['mail' => htmlspecialchars($_POST['mail']),
-                'password' => $this->encrypt->encode(htmlspecialchars($_POST['newPassword'])),
+                'password' => $this->encryption->encrypt(htmlspecialchars($_POST['newPassword'])),
             ];
             $test = $this->admin_model->create($values);
             if ($test) {
@@ -71,7 +71,7 @@ class Administrateur extends Administrator {
 
     public function updateMdp() {
         $data['isAdmin'] = parent::isAdmin();
-        $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
+        $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $data['administrateur'] = $this->admin_model->find(['mail' => $mail]);
 
         $this->layout->view('administrateur/modifmdp', $data);
@@ -88,20 +88,20 @@ class Administrateur extends Administrator {
         } else {
 
             $data['isAdmin'] = parent::isAdmin();
-            $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
+            $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
             $password = htmlspecialchars($this->input->post('newPassword'));
-            $password = $this->encrypt->encode($password);
+            $password = $this->encryption->decrypt($password);
             $this->admin_model->update(['mail' => $mail], ['password' => $password]);
             $this->deconnexion();
         }
     }
 
     public function passwordCheck() {
-        $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
+        $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $Oldpass = $this->input->post('oldPassword');
         $results = $this->admin_model->getOldPassword($mail);
         $currentPass = $results[0]->password;
-        $currentPass = $this->encrypt->decode($currentPass);
+        $currentPass = $this->encryption->decrypt($currentPass);
         if ($Oldpass == $currentPass) {
             return true;
         } else {

@@ -326,7 +326,7 @@ $config['cache_query_string'] = FALSE;
   |
  */
 
-$config['encryption_key'] = " zesrdggfsde";
+$config['encryption_key'] = hex2bin("cc9e6eae5fd79a5d0b65dff9d9d1a619");
 
 /*
   |--------------------------------------------------------------------------
