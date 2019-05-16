@@ -26,9 +26,7 @@ class Administrator extends CI_Controller {
         $this->load->helper(array('url', 'assets'));
         $this->load->model('user_model');
         $this->load->library('layout');
-        $pas = $this->encryption->encrypt('azerty');
-        var_dump($pas);
-        die;
+       
         $key = bin2hex($this->encryption->create_key(16));
         $method = $this->router->fetch_method();
         $class = $this->router->fetch_class();
