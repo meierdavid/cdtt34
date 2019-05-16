@@ -20,13 +20,15 @@ class Administrator extends CI_Controller {
         parent::__construct();
         $this->load->helper('cookie');
         $this->load->library('encryption');
-        $this->load->library('encrypt');
         $this->load->model('administrator_model');
         $this->load->library('form_validation');
         $this->load->database();
         $this->load->helper(array('url', 'assets'));
         $this->load->model('user_model');
         $this->load->library('layout');
+        $pas = $this->encryption->encrypt('azerty');
+        var_dump($pas);
+        die;
         $key = bin2hex($this->encryption->create_key(16));
         $method = $this->router->fetch_method();
         $class = $this->router->fetch_class();
