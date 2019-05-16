@@ -6,7 +6,7 @@
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
                             <h2>Liste des Clubs</h2>
-                            
+
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
@@ -23,21 +23,23 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <?php 
-                                                        $i = 0;
-                                                        foreach ($club as $item) { ?>
+                                                    <?php
+                                                    $i = 0;
+                                                    foreach ($club as $item) {
+                                                        ?>
 
                                                         <td><?php echo $item->nomClub; ?></td>
                                                         <td><a href="<?php echo base_url("departement/clubs/" . $departements[$i]['numDepartement']); ?>"><?php echo $departements[$i]['nomDepartement'] ?></a></td>
                                                         <?php if ($isAdmin) { ?>
-                                                        <td>
-                                                    <a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png")?>"></a></td>
-                                                        <td><a href="<?php echo base_url("club/update/" . $item->numClub); ?>"><img src="<?php echo base_url("assets/image/update.png")?>"></a></td>
-                                                <?php } ?>
-                                                </tr>
-                                            <?php 
+                                                            <td>
+                                                                <a id="supprimer" href="<?php echo base_url("club/delete/" . $item->numClub); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png") ?>"></a></td>
+                                                            <td><a href="<?php echo base_url("club/update/" . $item->numClub); ?>"><img src="<?php echo base_url("assets/image/update.png") ?>"></a></td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                    <?php
                                                     $i++;
-                                                        } ?>
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -77,10 +79,10 @@
             "searching": true, // false to disable search (or any other option)
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
             "language": {
-            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
             }
         });
-        
+
         $('.dataTables_length').addClass('bs-select');
     });
 </script>

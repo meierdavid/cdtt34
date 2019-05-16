@@ -36,41 +36,40 @@ class Administrateur extends Administrator {
 
         $this->layout->view('administrateur/profil', $data);
     }
-    public function delete($id){
-            $data['isAdmin'] = parent::isAdmin();
-            $test = $this->admin_model->delete(['id' => $id]);
-            if($test){
-                //delete ok
-                $this->liste();
-            }
-            else{
-                //delete fail
-                $this->liste();
-            }
-        }
-    public function create(){
+
+    public function delete($id) {
         $data['isAdmin'] = parent::isAdmin();
-        
+        $test = $this->admin_model->delete(['id' => $id]);
+        if ($test) {
+            //delete ok
+            $this->liste();
+        } else {
+            //delete fail
+            $this->liste();
+        }
+    }
+
+    public function create() {
+        $data['isAdmin'] = parent::isAdmin();
+
         $this->form_validation->set_rules("newPassword", "New Password", "required");
         $this->form_validation->set_rules("newPasswordConfirm", "Confirm Password", "matches[newPassword]|required");
-        if ($this->form_validation->run() == FALSE) {  
-            $this->layout->view('administrateur/create',$data);
-        }
-        else{
+        if ($this->form_validation->run() == FALSE) {
+            $this->layout->view('administrateur/create', $data);
+        } else {
             $values = ['mail' => htmlspecialchars($_POST['mail']),
-            'password' => $this->encrypt->encode(htmlspecialchars($_POST['newPassword'])),
+                'password' => $this->encrypt->encode(htmlspecialchars($_POST['newPassword'])),
             ];
             $test = $this->admin_model->create($values);
-            if($test){
+            if ($test) {
                 $this->liste();
-            }
-            else{
-                $this->layout->view('administrateur/create',$data);
+            } else {
+                $this->layout->view('administrateur/create', $data);
             }
         }
     }
-    
-    public function updateMdp(){
+
+    public function updateMdp() {
         $data['isAdmin'] = parent::isAdmin();
         $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $data['administrateur'] = $this->admin_model->find(['mail' => $mail]);
@@ -79,22 +78,21 @@ class Administrateur extends Administrator {
     }
 
     public function modifMdp() {
-        
+
         $this->form_validation->set_rules("oldPassword", "Old Password", "required|callback_passwordCheck");
         $this->form_validation->set_rules("newPassword", "New Password", "required");
         $this->form_validation->set_rules("newPasswordConfirm", "Confirm Password", "matches[newPassword]|required");
-        
+
         if ($this->form_validation->run() == false) {
             $this->updateMdp();
         } else {
-            
+
             $data['isAdmin'] = parent::isAdmin();
             $mail = $this->encrypt->decode($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
             $password = htmlspecialchars($this->input->post('newPassword'));
             $password = $this->encrypt->encode($password);
-            $this->admin_model->update(['mail'=> $mail], ['password' => $password]);
+            $this->admin_model->update(['mail' => $mail], ['password' => $password]);
             $this->deconnexion();
-         
         }
     }
 
@@ -111,7 +109,8 @@ class Administrateur extends Administrator {
             return false;
         }
     }
-    public function deconnexion(){
+
+    public function deconnexion() {
         $cookieid = parent::getCookieIdName();
         $cookiepwd = parent::getCookiePwdName();
         delete_cookie($cookieid);
@@ -119,6 +118,7 @@ class Administrateur extends Administrator {
         $data['isAdmin'] = parent::isAdmin();
         redirect(base_url('welcome'));
     }
+
     /*
       public function connexion()
       {

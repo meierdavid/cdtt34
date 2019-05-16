@@ -1,27 +1,29 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
-* Name:  Auth Lang - English
-*
-* Author: Ben Edmunds
-* 		  ben.edmunds@gmail.com
-*         @benedmunds
-*
-* Author: Jakub Vatrt
-*         vatrtj@gmail.com
-*
-* Location: http://github.com/benedmunds/ion_auth/
-*
-* Created:  11.11.2016
-*
-* Description:  English language file for Ion Auth example views
-*
-*/
+<?php
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+/**
+ * Name:  Auth Lang - English
+ *
+ * Author: Ben Edmunds
+ * 		  ben.edmunds@gmail.com
+ *         @benedmunds
+ *
+ * Author: Jakub Vatrt
+ *         vatrtj@gmail.com
+ *
+ * Location: http://github.com/benedmunds/ion_auth/
+ *
+ * Created:  11.11.2016
+ *
+ * Description:  English language file for Ion Auth example views
+ *
+ */
 // Errors
 $lang['error_csrf'] = 'Tento formulár neprešiel bezpečnostnou kontrolou.';
 
 // Login
-$lang['login_heading']         = 'Prihlásenie';
+$lang['login_heading'] = 'Prihlásenie';
 $lang['login_subheading'] = 'Prosím prihláste sa nižšie pomocou svojho emailu alebo užívateľským menom a heslom';
 $lang['login_identity_label'] = 'E-mail / Užívateľské meno:';
 $lang['login_password_label'] = 'Heslo';
@@ -134,7 +136,7 @@ $lang['forgot_password_validation_email_label'] = 'E-mailová adresa';
 $lang['forgot_password_username_identity_label'] = 'Používateľské meno';
 $lang['forgot_password_email_identity_label'] = 'Email';
 $lang['forgot_password_email_not_found'] = 'Žiadny záznam s toutu e-mailovou adresou.';
-$lang['forgot_password_identity_not_found']         = 'No record of that username address.';
+$lang['forgot_password_identity_not_found'] = 'No record of that username address.';
 
 // Reset Password
 $lang['reset_password_heading'] = 'Zmena hesla';

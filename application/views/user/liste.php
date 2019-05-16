@@ -19,17 +19,19 @@
                                                     <th scope="col">Classement actuel</th>
                                                     <th scope="col">Date de naissance</th>
                                                     <th scope="col">Club</th>
-                                                    
-                                                    <?php if($isAdmin){?>
-                                                    <th scope="col">Supprimer</th>
-                                                    <th scope="col">Modifier</th>
+
+                                                    <?php if ($isAdmin) { ?>
+                                                        <th scope="col">Supprimer</th>
+                                                        <th scope="col">Modifier</th>
                                                     <?php } ?>
-                                                    
+
                                                 </tr>
                                             </thead>
-                                            <tbody><?php $i=0;foreach ($user as $item) { ?>
-                                                <tr>
-                                                    
+                                            <tbody><?php $i = 0;
+                                                    foreach ($user as $item) {
+                                                        ?>
+                                                    <tr>
+
                                                         <td><?php echo $item->idUser; ?></td>
                                                         <td><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->nomUser; ?></a></td>
                                                         <td ><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->prenomUser; ?></a></td>
@@ -37,25 +39,25 @@
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
-                                                        <?php if($isAdmin){?>
-                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png");?>"></a></p></td>
-                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/update/" . $item->idUser); ?>"><img src="<?php echo base_url("assets/image/update.png");?>"></a></p></td>
-                                                        
-                                                        <?php } ?>
-                                                        
-                                                </tr>
-                                                <?php
+    <?php if ($isAdmin) { ?>
+                                                            <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png"); ?>"></a></p></td>
+                                                            <td><p><a id= "supprimer" href="<?php echo base_url("User/update/" . $item->idUser); ?>"><img src="<?php echo base_url("assets/image/update.png"); ?>"></a></p></td>
+
+    <?php } ?>
+
+                                                    </tr>
+                                                    <?php
                                                     $i++;
-                                                
-                                                        } ?>
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
-                                     <?php if($isAdmin){?>
-                                    <div class="text-center mb-3">
-                                        <a class="btn btn-primary" href="<?php echo base_url('user/create');?>" role="button">Ajouter un joueur</a>
-                                    </div>
-                                    <?php } ?>
+<?php if ($isAdmin) { ?>
+                                        <div class="text-center mb-3">
+                                            <a class="btn btn-primary" href="<?php echo base_url('user/create'); ?>" role="button">Ajouter un joueur</a>
+                                        </div>
+<?php } ?>
                                 </article>
                             </div>
                         </div>
@@ -63,7 +65,7 @@
                 </div>
             </div>
 
-          
+
 
         </div>
     </div>
@@ -73,21 +75,21 @@
 <script>
     function validate()
     {
-        
-     
+
+
         var r = confirm(" êtes-vous sur de supprimer ce joueur ?")
         if (r == true)
             return true;
         else
             return false;
     }
-    
-       $(document).ready(function () {
+
+    $(document).ready(function () {
         $('#table').DataTable({
             "searching": true, // false to disable search (or any other option)
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
             "language": {
-            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
             }
         });
         $('.dataTables_length').addClass('bs-select');

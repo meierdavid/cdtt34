@@ -1,17 +1,22 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Rencontre_model extends MY_Model{
+<?php
 
-	protected $table ='rencontre';
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
-        public function selectById($id){
-            $this->db->select('*');
-            $this->db->from($this->table);
-            $this->db->where('numGagnant =' , $id);
-            $this->db->or_where(['numPerdant' => $id]);
-            $this->db->order_by('date','DESC');
+class Rencontre_model extends MY_Model {
 
-            return  $this->db->get()->result();
-         
-        }
+    protected $table = 'rencontre';
+
+    public function selectById($id) {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('numGagnant =', $id);
+        $this->db->or_where(['numPerdant' => $id]);
+        $this->db->order_by('date', 'DESC');
+
+        return $this->db->get()->result();
     }
-    ?>
+
+}
+
+?>

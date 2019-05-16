@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
-                          
+
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">

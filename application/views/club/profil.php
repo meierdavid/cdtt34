@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
-                          
+
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
@@ -24,9 +24,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody> 
-                                                <?php $i=0;foreach ($joueurs as $item) { ?>
-                                                <tr>
-                                                    
+                                                <?php $i = 0;
+                                                foreach ($joueurs as $item) {
+                                                    ?>
+                                                    <tr>
+
                                                         <td><?php echo $item->idUser; ?></td>
                                                         <td><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->nomUser; ?></a></td>
                                                         <td ><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->prenomUser; ?></a></td>
@@ -34,8 +36,8 @@
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
                                                         <td><p><a href="<?php echo base_url("User/profil/" . $item->idUser); ?>">Voir le profil</a></p></td>
-                                                    
-                                                </tr><?php } ?>
+
+                                                    </tr><?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

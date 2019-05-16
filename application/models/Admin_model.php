@@ -1,10 +1,13 @@
 <?php
-class Admin_model extends MY_Model{
 
-	protected $table ='admin';
+class Admin_model extends MY_Model {
 
-	public function getOldPassword($mail){
-           return $this->db->get_where($this->table, ['mail' => $mail])->result();
-        }
+    protected $table = 'admin';
+
+    public function getOldPassword($mail) {
+        return $this->db->get_where($this->table, ['mail' => $mail])->result();
+    }
+
 }
+
 ?>
