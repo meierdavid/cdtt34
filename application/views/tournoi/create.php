@@ -5,10 +5,10 @@
        <div class="notification is-danger">
        <?php echo validation_errors(); ?> 
         </div>
-        <form method="post" accept-charset="utf-8" action="<?php base_url('tournoi/create')?>">
+        <?php echo form_open('tournoi/create');?>
             <div class="form-group">
-                <label class="control-label">Nom du tournoi</label>
-                <input type="text" class="form-control" name="nomTournoi"  value="" size="30" required /> 
+                <label for="create_nom_tournoi" class="control-label">Nom du tournoi</label>
+                <input id="create_nom_tournoi" type="text" class="form-control" name="nomTournoi"  value="" size="30" required /> 
             </div>
 
             <div class="text-center"><input class="btn-primary" type="submit" value="créer" /></div>

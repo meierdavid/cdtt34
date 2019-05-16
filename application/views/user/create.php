@@ -5,30 +5,30 @@
        <div class="notification is-danger">
        <?php echo validation_errors(); ?> 
         </div> 
-        <form method="post" accept-charset="utf-8" action="<?php base_url('user/create')?>">
+        <?php echo form_open('user/create');?>
             <div class="form-group">
-                <label class="control-label">Numéro de licence</label>
-                <input type="text" class="form-control" name="idUser"  value="" size="30" required /> 
+                <label for="create_num_licence" class="control-label">Numéro de licence</label>
+                <input id="create_num_licence" type="text" class="form-control" name="idUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-                <label class="control-label">Nom du joueur</label>
-                <input type="text" class="form-control" name="nomUser"  value="" size="30" required /> 
+                <label for="create_nom_joueur" class="control-label">Nom du joueur</label>
+                <input id="create_nom_joueur" type="text" class="form-control" name="nomUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-                <label class="control-label">Prénom du joueur</label>
-                <input type="text" class="form-control" name="prenomUser"  value="" size="30" required /> 
+                <label for="create_prenom_joueur" class="control-label">Prénom du joueur</label>
+                <input id="create_prenom_joueur" type="text" class="form-control" name="prenomUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-                <label class="control-label">Classement du joueur</label>
-                <input type="numeric" class="form-control" name="classementUser"  value="" size="30" required /> 
+                <label for="create_classement_joueur" class="control-label">Classement du joueur</label>
+                <input id="create_classement_joueur" type="numeric" class="form-control" name="classementUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-                <label class="control-label">Classement provisoire du joueur</label>
-                <input type="numeric" class="form-control" name="classementProvisoireUser"  value="" size="30" required /> 
+                <label for="create_classementP_joueur" class="control-label">Classement provisoire du joueur</label>
+                <input id="create_classementP_joueur" type="numeric" class="form-control" name="classementProvisoireUser"  value="" size="30" required /> 
             </div>
             <div class="form-group">
-             <label class="control-label" for="dateDeNaissance">date de naissance :</label>
-             <input id="dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="">
+             <label for="create_dateDeNaissance" class="control-label" >date de naissance :</label>
+             <input id="create_dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="">
             </div>
              <div id="select-club">
                 

@@ -51,7 +51,7 @@ class ADMINISTRATOR_Controller extends CI_Controller {
             else 
             {
                 // Mauvais identifiant, ont redirige vers la page de connexion
-                redirect(base_url("admin/connexion"));
+                redirect(base_url("welcome/connexion"));
             }
         }
         elseif (get_cookie($this->config->item('cookie_prefix').$this->_cookie_id_name, TRUE) &&
@@ -63,7 +63,7 @@ class ADMINISTRATOR_Controller extends CI_Controller {
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
         elseif(($class == 'administrateur') || ($class == 'rencontre')){
-            redirect(base_url('admin/connexion/fail'));
+            redirect(base_url('welcome/fail')); //page d'
         }
          elseif(($method!= "connexion" )&& ($method!= 'liste') && ($method!= 'index') && ($method!= 'fail') && ($method!= 'profil') && ($method!= 'clubs')){
             redirect(base_url('admin/connexion/fail'));

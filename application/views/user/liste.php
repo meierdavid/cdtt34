@@ -22,6 +22,7 @@
                                                     
                                                     <?php if($isAdmin){?>
                                                     <th scope="col">Supprimer</th>
+                                                    <th scope="col">Modifier</th>
                                                     <?php } ?>
                                                     
                                                 </tr>
@@ -38,6 +39,8 @@
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
                                                         <?php if($isAdmin){?>
                                                         <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png");?>"></a></p></td>
+                                                        <td><p><a id= "supprimer" href="<?php echo base_url("User/update/" . $item->idUser); ?>"><img src="<?php echo base_url("assets/image/update.png");?>"></a></p></td>
+                                                        
                                                         <?php } ?>
                                                         
                                                 </tr>

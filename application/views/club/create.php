@@ -5,16 +5,16 @@
        <div class="notification is-danger">
        <?php echo validation_errors(); ?> 
         </div> 
-        <form method="post" accept-charset="utf-8" action="<?php base_url('club/create')?>">
+        <?php echo form_open("club/create");?>
             <div class="form-group">
-                <label class="control-label">Nom du club</label>
-                <input type="text" class="form-control" name="nomClub"  value="" size="30" required /> 
+                <label for="create_nom_club" class="control-label">Nom du club</label>
+                <input id="create_nom_club" type="text" class="form-control" name="nomClub"  value="" size="30" required /> 
             </div>
             <div id="select-departement">
                 
      
             </div>
-            <div class="text-center"><input class="btn-primary" type="submit" value="créer" /></div>
+        <div class="text-center"><button class="btn-primary" type="submit" >créer</button></div>
 
        </form>  
     </div>

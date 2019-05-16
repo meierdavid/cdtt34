@@ -19,7 +19,17 @@ class Welcome extends ADMINISTRATOR_Controller {
 
         $this->layout->view('accueil', $data);
     }
-
+   
+    function connexion() {
+        $data['isAdmin'] = parent::isAdmin();
+        $this->layout->view('administrateur/connexion',$data);
+    }
+    function fail() {
+        $data['isAdmin'] = parent::isAdmin();
+        
+        $this->layout->views('errors/connexion',$data);
+        $this->layout->view('administrateur/connexion',$data);
+    }
     public function contact() {
         $data['isAdmin'] = parent::isAdmin();
         $this->layout->view('contact', $data);

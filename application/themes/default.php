@@ -4,6 +4,7 @@
         <title>Classement Hérault tenis de table</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url("assets/css/footer.css"); ?>" />
         <?php foreach ($css as $url): ?>
             <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $url; ?>" />
@@ -14,7 +15,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
+        
 
         <script src="<?php echo base_url("assets/javascript/jquery.easy-autocomplete.min.js"); ?>"></script> 
         <link rel="stylesheet" href="<?php echo base_url("assets/css/easy-autocomplete.min.css"); ?>"/> 
@@ -57,7 +58,7 @@
 
                     <?php if (!$isAdmin) { ?>
                         <li class="nav-item">
-                            <a href="<?php echo base_url('admin/connexion'); ?>" class="nav-link" >Connexion</a>
+                            <a href="<?php echo base_url('welcome/connexion'); ?>" class="nav-link" >Connexion</a>
                         </li>
                     <?php } else { ?>
 

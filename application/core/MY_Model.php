@@ -3,6 +3,7 @@
 class MY_Model extends CI_Model {
     protected $table = '';
     
+    //insert $values dans la table sur laquelle la fonction est appellé
     public function create($values) {
         if ($this->db->set($values)->insert($this->table)) return $this->db->insert_id();
         return false;

@@ -8,14 +8,13 @@
         <h1>Saisir une rencontre</h1>
     </div>
 
-
-    <form method="post" accept-charset="utf-8" action="<?php base_url('rencontre/create') ?>"  onsubmit="return(validate())">
+    <?php echo form_open('rencontre/create','onsubmit="return(validate())"');?>
         <div class="form-group">
             <div class="row">
                 <div class="mb-3">
 
-                    <label class="h4" for="date">* date :</label>
-                    <input class=" bg-light " name="date" type="date" value="<?php echo set_value('date'); ?>">
+                    <label class="h4" for="date_rencontre">* date :</label>
+                    <input id="date_rencontre" class=" bg-light " name="date" type="date" value="<?php echo set_value('date'); ?>">
                     <div class="error notification text-danger is-danger"><?php echo form_error('date'); ?> </div>
                 </div>
             </div>
@@ -34,14 +33,14 @@
                      <div class="" >
                     <h1 class="text-success">Gagnant</h1>
                 </div>
-                    <label  class="control-label">Licence</label>
+                    <label  for="licence_gagnant" class="control-label">Licence</label>
 
-                    <input type="number" class="form-control " name="numGagnant"  value="<?php echo set_value('numGagnant'); ?>" size="30" required />
+                    <input id="licence_gagnant" type="number" class="form-control " name="numGagnant"  value="<?php echo set_value('numGagnant'); ?>" size="30" required />
 
-                    <label  class="control-label">Nom</label>
+                    <label  for="recherche-nom-Gagnant" class="control-label">Nom</label>
                     <input id="recherche-nom-Gagnant" type="text" class="form-control recherche-nom" name="nomGagnant"  value="<?php echo set_value('nomGagnant'); ?>" size="30" required />
                     <div class="error notification text-danger is-danger "><?php echo form_error('nomGagnant'); ?> </div>
-                    <label class="control-label">Prénom</label>
+                    <label for="recherche-prenom-Gagnant" class="control-label">Prénom</label>
                     <input id="recherche-prenom-Gagnant" type = "text" class="form-control" name="prenomGagnant"  value="<?php echo set_value('prenomGagnant'); ?>" size="30" required />
                     <div class="error notification text-danger is-danger"><?php echo form_error('prenomGagnant'); ?> </div>
                 </div>
@@ -51,12 +50,12 @@
                     <div class="col-sm-6 col-lg-6 col-md-6" >
                     <h1 class="text-danger">Perdant</h1>
                     </div>
-                    <label class="control-label">Licence</label>
-                    <input type="number" class="form-control" name="numPerdant"  value="<?php echo set_value('numPerdant'); ?>" size="30" required />
-                    <label class="control-label">Nom</label>
+                    <label for="licence_perdant" class="control-label">Licence</label>
+                    <input id="licence_perdant" type="number" class="form-control" name="numPerdant"  value="<?php echo set_value('numPerdant'); ?>" size="30" required />
+                    <label for="recherche-nom-Perdant" class="control-label">Nom</label>
                     <input id="recherche-nom-Perdant" type="text" class="form-control" name="nomPerdant"  value="<?php echo set_value('nomPerdant'); ?>" size="30" required />
                     <div class="error notification text-danger is-danger"><?php echo form_error('nomPerdant'); ?> </div>
-                    <label class="control-label">Prénom</label>
+                    <label for="recherche-prenom-Perdant" class="control-label">Prénom</label>
                     <input id="recherche-prenom-Perdant" type="text" class="form-control" name="prenomPerdant"  value="<?php echo set_value('prenomPerdant'); ?>" size="30" required />
                     <div class="error notification text-danger is-danger"><?php echo form_error('prenomPerdant'); ?> </div>
                 </div>
