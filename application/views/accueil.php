@@ -1,8 +1,8 @@
-<main class="text-center container ">  
+<main class=" container ">  
 <div id="accueil">
     <div  class="row text-white">
         
-        <h2 class="cover-heading">
+        <h2 class="cover-heading m-auto">
             Suivez votre progression !
         </h2>
        
@@ -10,7 +10,7 @@
      
     <div  class="row text-white">
         
-        <p>
+        <p class="m-auto">
             Classement Foyer Rural des joueurs de tenis de table de l'Hérault
         <p>
        

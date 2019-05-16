@@ -74,7 +74,11 @@
     }
     $(document).ready(function () {
         $('#table').DataTable({
-            "searching": true // false to disable search (or any other option)
+            "searching": true, // false to disable search (or any other option)
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
         });
         $('.dataTables_length').addClass('bs-select');
     });
