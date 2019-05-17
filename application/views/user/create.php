@@ -5,10 +5,11 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
-        <div class="form-group">
-        <h2>Création de joueurs</h2>
-        </div>
+        
+        
+        
         <?php echo form_open('user/create'); ?>
+        <h2>Création de joueurs</h2>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
             <input id="create_num_licence" type="number" class="form-control" name="idUser"  value="<?php echo set_value('idUser'); ?>" size="30" required /> 
