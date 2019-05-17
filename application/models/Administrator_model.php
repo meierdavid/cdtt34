@@ -10,7 +10,12 @@ class Administrator_model extends CI_Model {
     function __construct() {
         $this->load->library('encryption');
     }
-
+    
+    public function validateToken($mail,$token){
+        $admin = $this->db->select(array('mail', 'token'))->get_where($this->_table, array('mail' => $mail))->row();
+        return ($token == $this->encryption->decrypt($admin->token));
+    }
+    
     public function validate($mail, $password) {
         $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
         return password_verify($password, $admin->password);

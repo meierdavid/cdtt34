@@ -91,7 +91,6 @@ class Administrateur extends Administrator {
         $data['isAdmin'] = parent::isAdmin();
         $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $data['administrateur'] = $this->admin_model->find(['mail' => $mail]);
-
         $this->layout->view('administrateur/modifmdp', $data);
     }
 
@@ -136,9 +135,10 @@ class Administrateur extends Administrator {
    // supprime les cookies de l'admin connecté
     public function deconnexion() {
         $cookieid = parent::getCookieIdName();
-        $cookiepwd = parent::getCookiePwdName();
+        $cookieToken = parent::getCookieTokenName();
+        $this->admin->update(["id" => $this->encryption->decode($cookieid)],["token" => NULL]); 
         delete_cookie($cookieid);
-        delete_cookie($cookiepwd);
+        delete_cookie($cookieToken);     
         $data['isAdmin'] = parent::isAdmin();
         redirect(base_url('welcome'));
     }

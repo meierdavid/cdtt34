@@ -14,13 +14,14 @@ class Administrator extends CI_Controller {
             // 'prefix' => '',
     );
     private $_cookie_id_name = "189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"; // nom d'un cookie
-    private $_cookie_id_password = "1C89DS7CDS8CD89CSD7CSDDSVDSIJPIOCDS"; // nom d'un cookie
+    private $_cookie_id_token = "1C89DS7CDS8CD89CSD7CSDDSVDSIJPIOCDS"; // nom d'un cookie
 
     function __construct() {
         parent::__construct();
         $this->load->helper('cookie');
         $this->load->library('encryption');
         $this->load->model('administrator_model');
+        $this->load->model('admin_model');
         $this->load->library('form_validation');
         $this->load->database();
         $this->load->helper(array('url', 'assets'));
@@ -35,16 +36,18 @@ class Administrator extends CI_Controller {
                 $cookies_identifiant['name'] = $this->_cookie_id_name;
                 $cookies_identifiant['value'] = $this->encryption->encrypt($this->input->post('identifiant'));
                 // $cookies_identifiant['domain'] = "";
+                
                 $cookies_identifiant['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_identifiant);
-
-                $cookies_password = $this->_cookie;
-                $cookies_password['name'] = $this->_cookie_id_password;
-                $cookies_password['value'] = $this->encryption->encrypt($this->input->post('password'));
+                $random_string = random_string('alnum', 16);
+                $cookies_token = $this->_cookie;
+                $cookies_token['name'] = $this->_cookie_id_token;
+                $cookies_token['value'] = $this->encryption->encrypt($random_string);
                 // $cookies_identifiant['domain'] = "";
-                $cookies_password['prefix'] = $this->config->item('cookie_prefix');
-                set_cookie($cookies_password);
-
+                $cookies_token['prefix'] = $this->config->item('cookie_prefix');
+                set_cookie($cookies_token);
+                //enregistrer le Token dans la bd
+                $this->admin->update(["id" => $this->input->post('identifiant', TRUE)],["token" => $this->encryption->encrypt($random_string)]);
                 // Tout est ok, ont redirige vers la page d'accueil de l'admin
                 redirect(base_url("welcome"));
             } else {
@@ -52,10 +55,10 @@ class Administrator extends CI_Controller {
                 redirect(base_url("welcome/connexion"));
             }
         } elseif (get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name, TRUE) &&
-                get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_password, TRUE)) {
+                get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_token, TRUE)) {
             $mail = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name));
-            $password = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_password));
-            if ($this->administrator_model->validate($mail, $password) == FALSE)
+            $token = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_token));
+            if ($this->administrator_model->validateToken($mail, $token) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
        /* elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
@@ -65,8 +68,8 @@ class Administrator extends CI_Controller {
         }
     }
 
-    public function getCookiePwdName() {
-        return $this->_cookie_id_password;
+    public function getCookieTokenName() {
+        return $this->_cookie_id_token;
     }
 
     public function getCookieIdName() {
