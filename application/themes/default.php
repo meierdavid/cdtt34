@@ -6,9 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url("assets/css/footer.css"); ?>" />
-        <?php foreach ($css as $url): ?>
-            <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $url; ?>" />
-        <?php endforeach; ?>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"/>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -73,23 +70,14 @@
 
             <?php echo $output; ?>
         </div>
+        <?php if($footer == true){ ?>
         <footer class="page-footer font-small blue mt-5 mb-0">
-
-            <!-- Copyright -->
             <div class=" text-center ">
                 <a> Nous contacter</a>
                 <p> adresse@email.com </p>
             </div>
-            <!-- Copyright -->
-
         </footer>
-        <!-- Footer -->
-
-
-        <?php foreach ($js as $url): ?>
-            <script type="text/javascript" src="<?php echo $url; ?>"></script> 
-        <?php endforeach; ?>
-
+        <?php } ?>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     </body>
 
