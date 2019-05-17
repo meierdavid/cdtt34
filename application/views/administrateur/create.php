@@ -2,7 +2,7 @@
 <div class="row justify-content-md-center mt-5 mb-5">
 
     <div class="text-center">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 class="mb-3 font-weight-normal">Ajouter un Administrateur</h1>
         <?php echo form_open("administrateur/create"); ?>
         <label for="create_email" class="sr-only">Email address</label>
 

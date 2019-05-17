@@ -8,7 +8,7 @@
         <h1>Saisir une rencontre</h1>
     </div>
 
-    <?php echo form_open('rencontre/create', 'onsubmit="return(validate())"'); ?>
+    <?php echo form_open('rencontre/create', 'onsubmit="return(validate())" class="m-auto" '); ?>
     <div class="form-group">
         <div class="row">
             <div class="mb-3">

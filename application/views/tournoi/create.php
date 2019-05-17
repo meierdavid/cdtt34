@@ -5,7 +5,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div>
-        <?php echo form_open('tournoi/create'); ?>
+        <?php echo form_open('tournoi/create','class="m-auto"'); ?>
         <div class="form-group">
             <label for="create_nom_tournoi" class="control-label">Nom du tournoi</label>
             <input id="create_nom_tournoi" type="text" class="form-control" name="nomTournoi"  value="" size="30" required /> 

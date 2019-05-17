@@ -5,7 +5,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div>
-        <?php echo form_open('departement/update/' . $departement[0]->numDepartement); ?>
+        <?php echo form_open('departement/update/' . $departement[0]->numDepartement,'class="m-auto"'); ?>
         <div class="form-group">
             <label for="update_nom_departement" class="control-label">Departement</label>
             <input id="update_nom_departement" type="text" class="form-control" name="nomDepartement" value="<?php echo $departement[0]->nomDepartement ?>" size="30" required /> 

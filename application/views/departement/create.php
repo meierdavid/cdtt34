@@ -6,7 +6,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
-        <?php echo form_open("departement/create"); ?>
+        <?php echo form_open("departement/create",'class="m-auto"'); ?>
         <div class="form-group">
             <label for="create_nom_departement" class="control-label">Nom du departement</label>
             <input id="create_nom_departement" type="text" class="form-control" name="nomDepartement"  value="<?php echo set_value('nomDepartement'); ?>" size="30" required /> 
