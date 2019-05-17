@@ -11,7 +11,7 @@
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
                                         <h2><?php echo $club[0]->nomClub; ?></h2>
-                                        <table id ="table" class="table table-striped">
+                                        <table id ="table" class="table text-center table-striped">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Licence</th>
@@ -19,7 +19,9 @@
                                                     <th scope="col">Prénom</th>
                                                     <th scope="col">Classement début de saison</th>
                                                     <th scope="col">Classement actuel</th>
+                                                    <?php if($isAdmin){ ?>
                                                     <th scope="col">Date de naissance</th>
+                                                    <?php } ?>
                                                     <th scope="col">Profil</th>
                                                 </tr>
                                             </thead>
@@ -34,7 +36,9 @@
                                                         <td ><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->prenomUser; ?></a></td>
                                                         <td><?php echo $item->classementUser; ?></td>
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
+                                                        <?php if($isAdmin){ ?>
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
+                                                        <?php } ?>
                                                         <td><p><a href="<?php echo base_url("User/profil/" . $item->idUser); ?>">Voir le profil</a></p></td>
 
                                                     </tr><?php } ?>
