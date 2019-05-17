@@ -56,10 +56,10 @@ class Rencontre extends Administrator {
         $this->load->model('user_model');
         $coeff = 1; // coefficient des points suivant le tournoi
 
-        if (isset($_POST['nomTournoi'])) {
-            $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($_POST['nomTournoi'])])[0]->numTournoi;
+        if ( $this->input->post('nomTournoi', TRUE) != NULL) {
+            $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($this->input->post('nomTournoi', TRUE))])[0]->numTournoi;
 
-            switch ($_POST['nomTournoi']):
+            switch ($this->input->post('nomTournoi', TRUE)):
                 case 'nationaux':
                     $coeff = 3;
                     break;
@@ -100,11 +100,11 @@ class Rencontre extends Administrator {
             $this->layout->view('rencontre/create', $data);
         } else {
 
-            $values = ['numGagnant' => htmlspecialchars($_POST['numGagnant']),
-                'numPerdant' => htmlspecialchars($_POST['numPerdant']),
-                'date' => htmlspecialchars($_POST['date']),
+            $values = ['numGagnant' => htmlspecialchars($this->input->post('numGagnant', TRUE)),
+                'numPerdant' => htmlspecialchars($this->input->post('numPerdant', TRUE)),
+                'date' => htmlspecialchars($this->input->post('date', TRUE)),
             ];
-            $points = $this->CalculPoints($_POST['numGagnant'], $_POST['numPerdant'], $coeff);
+            $points = $this->CalculPoints($this->input->post('numGagnant', TRUE), $this->input->post('numPerdant', TRUE), $coeff);
             $values['pointGagnant'] = $points['pointGagnant'];
             $values['pointPerdant'] = $points['pointPerdant'];
 
@@ -129,7 +129,7 @@ class Rencontre extends Administrator {
 
             $test = $this->rencontre_model->update(
                     ['numRencontre' => $id], [
-                'nomRencontre' => htmlspecialchars($_POST['nomRencontre'])
+                'nomRencontre' => htmlspecialchars($this->input->post('nomRencontre', TRUE))
             ]);
             if ($test) {
                 $this->liste();

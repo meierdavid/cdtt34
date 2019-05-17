@@ -28,7 +28,7 @@
                                                     foreach ($club as $item) {
                                                         ?>
 
-                                                        <td><?php echo $item->nomClub; ?></td>
+                                                    <td><a  href="<?php echo base_url("club/joueurs/" . $item->numClub); ?>"><?php echo $item->nomClub; ?></a></td>
                                                         <td><a href="<?php echo base_url("departement/clubs/" . $departements[$i]['numDepartement']); ?>"><?php echo $departements[$i]['nomDepartement'] ?></a></td>
                                                         <?php if ($isAdmin) { ?>
                                                             <td>

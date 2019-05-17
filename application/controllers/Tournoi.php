@@ -40,7 +40,7 @@ class Tournoi extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('tournoi/create', $data);
         } else {
-            $values = ['nomTournoi' => htmlspecialchars($_POST['nomTournoi'])];
+            $values = ['nomTournoi' => htmlspecialchars($this->input->post('nomTournoi', TRUE))];
             $test = $this->tournoi_model->create($values);
             if ($test) {
                 $this->liste();
@@ -60,7 +60,7 @@ class Tournoi extends Administrator {
 
             $test = $this->tournoi_model->update(
                     ['numTournoi' => $id], [
-                'nomTournoi' => htmlspecialchars($_POST['nomTournoi'])
+                'nomTournoi' => htmlspecialchars($this->input->post('nomTournoi' ,TRUE))
             ]);
             if ($test) {
                 $this->liste();

@@ -57,9 +57,9 @@ class Club extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('club/create', $data);
         } else {
-            $departement = $this->departement_model->find(['nomDepartement' => htmlspecialchars($_POST['nomDepartement'])]);
+            $departement = $this->departement_model->find(['nomDepartement' => htmlspecialchars($this->input->post('nomDepartement', TRUE))]);
             $numDepartement = $departement[0]->numDepartement;
-            $values = ['nomClub' => htmlspecialchars($_POST['nomClub']),
+            $values = ['nomClub' => htmlspecialchars($this->input->post('nomClub', TRUE)),
                 'numDepartement' => $numDepartement,
             ];
             $test = $this->club_model->create($values);
@@ -81,7 +81,7 @@ class Club extends Administrator {
 
             $test = $this->club_model->update(
                     ['numClub' => $id], [
-                'nomClub' => htmlspecialchars($_POST['nomClub'])
+                'nomClub' => htmlspecialchars($this->input->post('nomClub', TRUE))
             ]);
             if ($test) {
                 $this->liste();

@@ -15,15 +15,14 @@
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nom</th>
-                                                    <th scope="col">nombres de joueurs</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody> 
                                                 <?php foreach ($clubs as $item) { ?>
                                                     <tr>
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $item->numClub); ?>"><?php echo $item->nomClub; ?></a></td>
-                                                        <td> attributs nombre de joueurs à rajouter</td>
-
+                                                     
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>

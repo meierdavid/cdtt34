@@ -52,8 +52,8 @@ class Departement extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('departement/create', $data);
         } else {
-            $values = ['nomDepartement' => htmlspecialchars($_POST['nomDepartement']),
-                'numeroDepartement' => htmlspecialchars($_POST['numeroDepartement'])
+            $values = ['nomDepartement' => htmlspecialchars($this->input->post('nomDepartement', TRUE)),
+                'numeroDepartement' => htmlspecialchars($this->input->post('numeroDepartement', TRUE))
             ];
             $test = $this->departement_model->create($values);
             if ($test) {
@@ -74,8 +74,8 @@ class Departement extends Administrator {
 
             $test = $this->departement_model->update(
                     ['numDepartement' => $id], [
-                'nomDepartement' => htmlspecialchars($_POST['nomDepartement']),
-                'numeroDepartement' => htmlspecialchars($_POST['numeroDepartement']),
+                'nomDepartement' => htmlspecialchars($this->input->post('nomDepartement', TRUE)),
+                'numeroDepartement' => htmlspecialchars($this->input->post('numeroDepartement', TRUE)),
             ]);
             if ($test) {
                 $this->liste();

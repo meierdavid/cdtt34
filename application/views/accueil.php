@@ -11,7 +11,7 @@
         <div  class="row text-white">
 
             <p class="m-auto">
-                Classement Foyer Rural des joueurs de tenis de table de l'Hérault
+                Classement Foyer Rural des joueurs de tennis de table de l'Hérault
             <p>
 
         </div>

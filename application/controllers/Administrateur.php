@@ -57,8 +57,8 @@ class Administrateur extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('administrateur/create', $data);
         } else {
-            $values = ['mail' => htmlspecialchars($_POST['mail']),
-                'password' => $this->encryption->encrypt(htmlspecialchars($_POST['newPassword'])),
+            $values = ['mail' => htmlspecialchars($this->input->post('mail', TRUE)),
+                'password' => $this->encryption->encrypt(htmlspecialchars($this->input->post('newPassword', TRUE))),
             ];
             $test = $this->admin_model->create($values);
             if ($test) {
@@ -89,7 +89,7 @@ class Administrateur extends Administrator {
 
             $data['isAdmin'] = parent::isAdmin();
             $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
-            $password = htmlspecialchars($this->input->post('newPassword'));
+            $password = htmlspecialchars($this->input->post('newPassword', TRUE));
             $password = $this->encryption->decrypt($password);
             $this->admin_model->update(['mail' => $mail], ['password' => $password]);
             $this->deconnexion();
@@ -98,7 +98,7 @@ class Administrateur extends Administrator {
 
     public function passwordCheck() {
         $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
-        $Oldpass = $this->input->post('oldPassword');
+        $Oldpass = $this->input->post('oldPassword', TRUE);
         $results = $this->admin_model->getOldPassword($mail);
         $currentPass = $results[0]->password;
         $currentPass = $this->encryption->decrypt($currentPass);
@@ -119,24 +119,4 @@ class Administrateur extends Administrator {
         redirect(base_url('welcome'));
     }
 
-    /*
-      public function connexion()
-      {
-      //	Chargement de la bibliothèque
-      $this->load->library('form_validation');
-      $this->form_validation->set_rules('pseudo', '"Nom d\'utilisateur"', 'trim|required|min_length[5]|max_length[52]|encode_php_tags');
-      $this->form_validation->set_rules('mdp',    '"Mot de passe"',       'trim|required|min_length[5]|max_length[52]|encode_php_tags');
-      $pseudo = $this->input->post('pseudo');
-      $mdp = $this->input->post('mdp');
-      if($this->form_validation->run())
-      {
-      //	Le formulaire est valide
-      $this->load->view('connexion_reussi');
-      }
-      else
-      {
-      //	Le formulaire est invalide ou vide
-      $this->layout->view('admin/connexion');
-      }
-      } */
 }

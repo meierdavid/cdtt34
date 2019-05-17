@@ -88,19 +88,19 @@ class User extends Administrator {
         } else {
 
             //CHERCHER LE NUM CLUB EN FONCTION DU NOM
-            $club = $this->club_model->find(['nomClub' => htmlspecialchars($_POST['nomClub'])]);
+            $club = $this->club_model->find(['nomClub' => htmlspecialchars($this->input->post('nomClub', TRUE))]);
             $numClub = $club[0]->numClub;
-            $values = ['idUser' => htmlspecialchars($_POST['idUser']),
-                'nomUser' => htmlspecialchars($_POST['nomUser']),
-                'prenomUser' => htmlspecialchars($_POST['prenomUser']),
-                'classementUser' => htmlspecialchars($_POST['classementUser']),
-                'classementProvisoireUser' => htmlspecialchars($_POST['classementProvisoireUser']),
+            $values = ['idUser' => htmlspecialchars($this->input->post('idUser', TRUE)),
+                'nomUser' => htmlspecialchars($this->input->post('nomUser', TRUE)),
+                'prenomUser' => htmlspecialchars($this->input->post('prenomUser', TRUE)),
+                'classementUser' => htmlspecialchars($this->input->post('classementUser', TRUE)),
+                'classementProvisoireUser' => htmlspecialchars($this->input->post('classementProvisoireUser', TRUE)),
                 'numClub' => $numClub,
-                'dateDeNaissance' => htmlspecialchars($_POST['dateDeNaissance']),
+                'dateDeNaissance' => htmlspecialchars($this->input->post('dateDeNaissance', TRUE)),
             ];
             $test = $this->user_model->create($values);
             if ($test) {
-                $this->profil($_POST['idUser']);
+                $this->profil($this->input->post('idUser', TRUE));
             } else {
                 $this->layout->view('user/create', $data);
             }
@@ -119,12 +119,12 @@ class User extends Administrator {
             $this->layout->view('user/update', $data);
         } else {
 
-            $test = $this->user_model->update(['idUser' => $id], ['nomUser' => htmlspecialchars($_POST['nomUser']),
-                'prenomUser' => htmlspecialchars($_POST['prenomUser']),
-                'classementUser' => htmlspecialchars($_POST['classementUser']),
-                'classementProvisoireUser' => htmlspecialchars($_POST['classementProvisoireUser']),
-                'numClub' => htmlspecialchars($_POST['numClub']),
-                'dateDeNaissance' => htmlspecialchars($_POST['dateDeNaissance']),
+            $test = $this->user_model->update(['idUser' => $id], ['nomUser' => htmlspecialchars($this->input->post('nomUser',TRUE)),
+                'prenomUser' => htmlspecialchars($this->input->post('prenomUser',TRUE)),
+                'classementUser' => htmlspecialchars($this->input->post('classementUser',TRUE)),
+                'classementProvisoireUser' => htmlspecialchars($this->input->post('classementProvisoireUser', TRUE)),
+                'numClub' => htmlspecialchars($this->input->post('numClub', TRUE)),
+                'dateDeNaissance' => htmlspecialchars($this->input->post('dateDeNaissance', TRUE)),
             ]);
             if ($test) {
                 $this->profil($id);
