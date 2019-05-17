@@ -30,9 +30,11 @@
                     <li class="nav-item">
                         <a href="<?php echo base_url('user'); ?>"  class="nav-link " >Joueurs</a>
                     </li>
+                    <?php if ($isAdmin) { ?>
                     <li class="nav-item">
                         <a href="<?php echo base_url('tournoi'); ?>" class="nav-link " >Tournois</a>
                     </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a href="<?php echo base_url('club'); ?>" class="nav-link " >Clubs</a>
                     </li>

@@ -58,7 +58,7 @@ class Administrator extends CI_Controller {
             if ($this->administrator_model->validate($mail, $password) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
-        elseif (($class == 'administrateur') || ($class == 'rencontre')) {
+        elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
             redirect(base_url('welcome/fail')); //page d'
         } elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'joueurs') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
             redirect(base_url('admin/connexion/fail'));

@@ -28,10 +28,11 @@ class Club extends Administrator {
 
 //load la view club/liste avec toutes les données de la table club
 // et le département qui correspond à chaque club
-    public function liste() {
+    public function liste( $message = NULL) {
         $this->load->model('departement_model');
         $data['isAdmin'] = parent::isAdmin();
         $data['club'] = $this->club_model->findAll();
+        $data['message'] = $message;
         $i = 0;
         foreach ($data['club'] as $item) {
             $departement = $this->departement_model->find(['numDepartement' => $item->numDepartement]);
@@ -59,10 +60,14 @@ class Club extends Administrator {
         $this->layout->view('club/profil', $data);
     }
 
+    // créer un club avec son nom et le département où il se trouve
+    // apres ajout affiche la liste des clubs
+    //
     public function create() {
         $this->load->model('departement_model');
         $data['isAdmin'] = parent::isAdmin();
         $this->form_validation->set_rules('nomClub', 'Club', 'required');
+        $this->form_validation->set_rules('nomDepartement', 'Département', 'required');
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('club/create', $data);
         } else {
@@ -79,10 +84,13 @@ class Club extends Administrator {
             }
         }
     }
-
+    // modifie le club dont l'id est passé en paramètre
+    // apres modification affiche la liste des clubs
+    
     public function update($id) {
         $data['isAdmin'] = parent::isAdmin();
         $this->form_validation->set_rules('nomClub', 'Club', 'required');
+        $this->form_validation->set_rules('nomDepartement', 'Département', 'required');
         if ($this->form_validation->run() == FALSE) {
             $data['club'] = $this->club_model->find(['numClub' => $id]);
             $this->layout->view('club/update', $data);
@@ -100,26 +108,35 @@ class Club extends Administrator {
             }
         }
     }
-
+    //supprime le club dont l'id est passé en paramètre
+    // si des joueurs sont dans ce club alors on montre un message d'erreur
+    // sinon on le supprime et on affiche la liste des clubs
     public function delete($id) {
         $data['isAdmin'] = parent::isAdmin();
-        $test = $this->club_model->delete(['numClub' => $id]);
-        if ($test) {
-            //delete ok
-            $this->liste();
-        } else {
-            //delete fail
-            $this->liste();
+        $this->load->model("user_model");
+        $joueurs = $this->user_model->find(['numClub' => $id]);
+        if($joueurs != null ){
+             $message_erreur = "Vous ne pouvez pas supprimer un club où se trouvent des joueurs";
+             $this->liste($message_erreur);
+        }
+        else{
+            $test = $this->club_model->delete(['numClub' => $id]);
+            if ($test) {
+                $message = "Le joueur à bien été supprimé";
+                $this->liste($message);
+            } else {
+                $message_erreur = "La suppression n'a pas fonctionné";
+                $this->liste();
+            }
         }
     }
-
+    // recupère toutes les données du clubs et de tous les joueurs du club
+    // affiche le profil du clubs avec ces données
     public function joueurs($id) {
-
         $this->load->model("user_model");
         $data['isAdmin'] = parent::isAdmin();
         $data['club'] = $this->club_model->find(['numClub' => $id]);
         $data['joueurs'] = $this->user_model->find(['numClub' => $id]);
         $this->layout->view('club/profil', $data);
     }
-
 }

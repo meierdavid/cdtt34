@@ -29,9 +29,10 @@ class Administrateur extends Administrator {
     }
     
 //load la view administrateur/liste avec toutes les données de la table admin
-    public function liste() {
+    public function liste($message = NULL) {
         $data['isAdmin'] = parent::isAdmin();
         $data['administrateur'] = $this->admin_model->findAll();
+        $data['message'] = $message;
         $this->layout->view('administrateur/liste', $data);
     }
 
@@ -51,11 +52,11 @@ class Administrateur extends Administrator {
         $data['isAdmin'] = parent::isAdmin();
         $test = $this->admin_model->delete(['id' => $id]);
         if ($test) {
-            //delete ok
-            $this->liste();
+            $message = "l'admin à bien été supprimé";
+            $this->liste($message);
         } else {
-            //delete fail
-            $this->liste();
+            $message_erreur = "La suppression n'a pas fonctionné";
+            $this->liste($message_erreur);
         }
     }
 
