@@ -7,11 +7,14 @@ include(APPPATH . 'modules/Administrator.php');
 
 class User extends Administrator {
 
+    //load library/model/database 
+    //nécessaire aux fonctions de user
     public function __construct() {
-
+         //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
     }
-
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
         $this->liste();
     }

@@ -6,9 +6,9 @@ if (!defined('BASEPATH'))
 include(APPPATH . 'modules/Administrator.php');
 
 class Rencontre extends Administrator {
-
+    
     public function __construct() {
-
+         //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
 
         $this->load->library('form_validation');
@@ -17,7 +17,8 @@ class Rencontre extends Administrator {
         $this->load->model('rencontre_model');
         $this->load->library('layout');
     }
-
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
         $this->liste();
     }

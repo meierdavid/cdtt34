@@ -7,8 +7,10 @@ include(APPPATH . 'modules/Administrator.php');
 
 class Tournoi extends Administrator {
 
+    //load library/model/database 
+    //nécessaire aux fonctions de tournoi
     public function __construct() {
-
+         //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
 
         $this->load->library('form_validation');
@@ -17,7 +19,8 @@ class Tournoi extends Administrator {
         $this->load->model('tournoi_model');
         $this->load->library('layout');
     }
-
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
         $this->liste();
     }

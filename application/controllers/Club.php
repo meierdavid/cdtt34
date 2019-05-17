@@ -8,9 +8,9 @@ include(APPPATH . 'modules/Administrator.php');
 class Club extends Administrator {
 
     //load library/model/database 
-    //nécesaire aux fonctions de club
+    //nécessaire aux fonctions de club
     public function __construct() {
-
+         //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
 
         $this->load->library('form_validation');

@@ -9,10 +9,10 @@ class Administrateur extends Administrator {
 
     
     //load library/model/database 
-    //nécesaire aux fonctions d'administrateur
+    //nécessaire aux fonctions d'administrateur
     
     public function __construct() {
-
+         //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
 
         $this->load->library('form_validation');

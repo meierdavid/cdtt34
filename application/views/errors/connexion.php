@@ -1,1 +1,1 @@
-<h2 class="text-center">Vous ne pouvez pas acceder à cette page</h2>
+<h2 class="text-center">Vous ne pouvez pas accéder à cette page</h2>

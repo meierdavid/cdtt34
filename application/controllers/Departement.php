@@ -6,9 +6,11 @@ if (!defined('BASEPATH'))
 include(APPPATH . 'modules/Administrator.php');
 
 class Departement extends Administrator {
-
+    
+    //load library/model/database 
+    //nécessaire aux fonctions de département  
     public function __construct() {
-
+        //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
 
         $this->load->library('form_validation');
@@ -17,11 +19,14 @@ class Departement extends Administrator {
         $this->load->model('departement_model');
         $this->load->library('layout');
     }
-
+    
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
         $this->liste();
     }
 
+//load la view departement/liste avec toutes les données de la table departement
     public function liste() {
 
 
@@ -30,7 +35,7 @@ class Departement extends Administrator {
 
         $this->layout->view('departement/liste', $data);
     }
-
+//cherche tous les Departements et encode les données en Json
     public function findAll() {
         $data['isAdmin'] = parent::isAdmin();
         $data = $this->departement_model->findAll();
