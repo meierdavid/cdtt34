@@ -39,7 +39,7 @@ class Administrator extends CI_Controller {
                 
                 $cookies_identifiant['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_identifiant);
-                $random_string = random_string('alnum', 16);
+                $random_string = random_bytes(16);
                 $cookies_token = $this->_cookie;
                 $cookies_token['name'] = $this->_cookie_id_token;
                 $cookies_token['value'] = $this->encryption->encrypt($random_string);
