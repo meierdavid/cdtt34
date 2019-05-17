@@ -3,7 +3,9 @@
 <p>Licence : <span class="font-weight-bold"><?php echo $user[0]->idUser; ?></span></p>
 <p>Classement début de saison : <span class="font-weight-bold"><?php echo $user[0]->classementUser; ?></span></p>
 <p>Classement actuel : <span class="font-weight-bold"><?php echo $user[0]->classementProvisoireUser; ?></span></p>
+<?php if($isAdmin){?>
 <p>Date de Naissance : <span class="font-weight-bold"><?php echo $user[0]->dateDeNaissance; ?></span></p>
+<?php } ?>
 </div>
 
 <h1>Historique des matchs</h1>
