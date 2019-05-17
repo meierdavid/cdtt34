@@ -92,7 +92,6 @@ class Club extends Administrator {
     public function update($id) {
         $data['isAdmin'] = parent::isAdmin();
         $this->form_validation->set_rules('nomClub', 'Club', 'required');
-        $this->form_validation->set_rules('nomDepartement', 'Département', 'required');
         if ($this->form_validation->run() == FALSE) {
             $data['club'] = $this->club_model->find(['numClub' => $id]);
             $this->layout->view('club/update', $data);
