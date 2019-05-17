@@ -9,7 +9,7 @@
         
         
         <?php echo form_open('user/create','class="m-auto"'); ?>
-        <h2>Création de joueurs</h2>
+        <h2>Création d'un joueur</h2>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
             <input id="create_num_licence" type="number" class="form-control" name="idUser"  value="<?php echo set_value('idUser'); ?>" size="30" required /> 
