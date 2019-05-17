@@ -29,7 +29,7 @@
                             if ($item['numGagnant'] == $user[0]->idUser) {
                                 echo "<tr class=\"bg-primary\">";
                             } else {
-                                echo "<tr class=\"bg-danger\">";
+                                echo "<tr class=\"bg-warning\">";
                             }
                             ?>
 
