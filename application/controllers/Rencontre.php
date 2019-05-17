@@ -7,6 +7,8 @@ include(APPPATH . 'modules/Administrator.php');
 
 class Rencontre extends Administrator {
     
+    //load library/model/database 
+    //nécessaire aux fonctions de rencontre
     public function __construct() {
          //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
@@ -23,11 +25,13 @@ class Rencontre extends Administrator {
         $this->liste();
     }
 
+    //affiche la liste de toutes les rencontres
+    // pour chaque rencontre on enregistre les noms des joueurs plutôt que leurs identifiants
+    //pour que l'affichage soit plus clair pour l'admin
     public function liste() {
         $data['isAdmin'] = parent::isAdmin();
         $data['rencontre'] = $this->rencontre_model->findAll();
         $i = 0;
-
         foreach ($data['rencontre'] as $item) {
             $perdant = $this->user_model->find(['idUser' => $item->numPerdant]);
             $vainqueur = $this->user_model->find(['idUser' => $item->numGagnant]);
@@ -41,16 +45,17 @@ class Rencontre extends Administrator {
             $data['historique'][$i]['numGagnant'] = $item->numGagnant;
             $i++;
         }
-
         $this->layout->view('rencontre/liste', $data);
     }
-
+ /*   
+//cherche la rencontre qui a pour id celui passé en paramètre
+// affiche son profil
     public function profil($id) {
         $data['isAdmin'] = parent::isAdmin();
         $data['rencontre'] = $this->rencontre_model->find(['numRencontre' => $id]);
         $this->layout->view('rencontre/profil', $data);
     }
-
+*/
     public function create() {
         $data['isAdmin'] = parent::isAdmin();
         $this->load->model('tournoi_model');

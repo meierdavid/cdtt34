@@ -1,7 +1,7 @@
 <div class="row justify-content-md-center mt-5 mb-5">
 
     <div class="text-center">
-        <p>Cette page de connexion est dédiée aux responsables départemental</p>
+        <p>Cette page de connexion est dédiée aux responsables départementaux</p>
 
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
         <?php echo form_open("welcome/connexion"); ?>

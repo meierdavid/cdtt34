@@ -52,7 +52,7 @@ class Club extends Administrator {
         echo json_encode($data);
     }
 
-//cherche le club qui à pour id celui passé en paramètre
+//cherche le club qui a pour id celui passé en paramètre
 // affiche son profil
     public function profil($id) {
         $data['isAdmin'] = parent::isAdmin();
@@ -122,11 +122,11 @@ class Club extends Administrator {
         else{
             $test = $this->club_model->delete(['numClub' => $id]);
             if ($test) {
-                $message = "Le joueur à bien été supprimé";
+                $message = "Le joueur a bien été supprimé";
                 $this->liste($message);
             } else {
                 $message_erreur = "La suppression n'a pas fonctionné";
-                $this->liste();
+                $this->liste($message_erreur);
             }
         }
     }
