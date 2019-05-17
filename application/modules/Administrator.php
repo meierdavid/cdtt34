@@ -36,7 +36,6 @@ class Administrator extends CI_Controller {
                 $cookies_identifiant['name'] = $this->_cookie_id_name;
                 $cookies_identifiant['value'] = $this->encryption->encrypt($this->input->post('identifiant'));
                 // $cookies_identifiant['domain'] = "";
-                
                 $cookies_identifiant['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_identifiant);
                 $random_string = random_bytes(16);
@@ -48,10 +47,10 @@ class Administrator extends CI_Controller {
                 set_cookie($cookies_token);
                 //enregistrer le Token dans la bd
                 $this->admin->update(["id" => $this->input->post('identifiant', TRUE)],["token" => $this->encryption->encrypt($random_string)]);
-                // Tout est ok, ont redirige vers la page d'accueil de l'admin
+                // Tout est ok, on redirige vers la page d'accueil de l'admin
                 redirect(base_url("welcome"));
             } else {
-                // Mauvais identifiant, ont redirige vers la page de connexion
+                // Mauvais identifiant, on redirige vers la page de connexion
                 redirect(base_url("welcome/connexion"));
             }
         } elseif (get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name, TRUE) &&
@@ -61,9 +60,9 @@ class Administrator extends CI_Controller {
             if ($this->administrator_model->validateToken($mail, $token) == FALSE)
                 redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
-       /* elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
+       elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
             redirect(base_url('welcome/fail')); //page d'
-        }*/ elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'joueurs') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
+        } elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'joueurs') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
             redirect(base_url('welcome/fail'));
         }
     }
