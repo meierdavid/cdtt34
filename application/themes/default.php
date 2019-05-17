@@ -71,7 +71,7 @@
             <?php echo $output; ?>
         </div>
         <?php 
-        var_dump(footer);
+        var_dump($footer);
         die;
         if($footer == true){ ?>
         <footer class="page-footer font-small blue mt-5 mb-0">
