@@ -72,8 +72,10 @@ class Administrateur extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('administrateur/create', $data);
         } else {
+            $password = htmlspecialchars($this->input->post('newPassword', TRUE));
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $values = ['mail' => htmlspecialchars($this->input->post('mail', TRUE)),
-                'password' => $this->encryption->encrypt(htmlspecialchars($this->input->post('newPassword', TRUE))),
+                'password' => $hashed_password,
             ];
             $test = $this->admin_model->create($values);
             if ($test) {
