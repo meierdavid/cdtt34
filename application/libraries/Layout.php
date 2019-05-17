@@ -30,8 +30,8 @@ class Layout {
 
     public function view($name, $data = array()) {
         $this->var['output'] .= $this->CI->load->view($name, $data, true);
-        var_dump($this->var);
-        if($name = "accueil"){
+        
+        if($name == "accueil"){
             $this->var['footer'] = true;
         }
         $this->CI->load->view('../themes/default', $this->var);
