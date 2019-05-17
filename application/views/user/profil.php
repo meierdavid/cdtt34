@@ -1,23 +1,14 @@
-<h2>Profil de<?php echo $user[0]->prenomUser . " " . $user[0]->nomUser; ?></h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Licence</th>
-            <th scope="col">Classement début de saison</th>
-            <th scope="col">Classement actuel</th>
-            <th scope="col">Date de Naissance</th>
-
-        </tr>
-    </thead>
-    <tbody> 
-        <tr>
-            <td><?php echo $user[0]->idUser; ?></td>
-            <td><?php echo $user[0]->classementUser; ?></td>
-            <td><?php echo $user[0]->classementProvisoireUser; ?></td>
-            <td><?php echo $user[0]->dateDeNaissance; ?></td>
-        </tr>
-    </tbody>
-</table>
+<div class="container text-center">
+<h2><?php echo $user[0]->prenomUser . " " . $user[0]->nomUser; ?></h2>            
+<p>Licence</p>                                    
+<p><?php echo $user[0]->idUser; ?></p>
+<p>Classement début de saison</p>
+<p><?php echo $user[0]->classementUser; ?></p>
+<p>Classement actuel</p>
+<p><?php echo $user[0]->classementProvisoireUser; ?></p>
+<p>Date de Naissance</p>
+<p><?php echo $user[0]->dateDeNaissance; ?></p>
+</div>
 
 <h1>Historique des matchs</h1>
 <?php if (isset($historique)) { ?>
