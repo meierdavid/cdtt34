@@ -28,7 +28,9 @@
                                                     <th scope="col">Prénom</th>
                                                     <th scope="col">Classement début de saison</th>
                                                     <th scope="col">Classement actuel</th>
+                                                    <?php if ($isAdmin) { ?>
                                                     <th scope="col">Date de naissance</th>
+                                                    <?php } ?>
                                                     <th scope="col">Club</th>
 
 <?php if ($isAdmin) { ?>
@@ -49,7 +51,9 @@
                                                         <td ><a  href="<?php echo base_url("User/profil/" . $item->idUser); ?>"><?php echo $item->prenomUser; ?></a></td>
                                                         <td><?php echo $item->classementUser; ?></td>
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
+                                                        <?php if ($isAdmin) { ?>
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
+                                                        <?php } ?>
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
                                                     <?php if ($isAdmin) { ?>
                                                             <td><p><a id= "supprimer-user" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png"); ?>"></a></p></td>
