@@ -27,9 +27,9 @@
                         <?php
                         foreach ($historique as $item) {
                             if ($item['numGagnant'] == $user[0]->idUser) {
-                                echo "<tr class=\"bg-success\">";
+                                echo "<tr class=\"bg-primary\">";
                             } else {
-                                echo "<tr class=\"bg-warning\">";
+                                echo "<tr class=\"bg-danger\">";
                             }
                             ?>
 
