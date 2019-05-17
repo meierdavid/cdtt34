@@ -60,10 +60,10 @@ class Rencontre extends Administrator {
             $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($this->input->post('nomTournoi', TRUE))])[0]->numTournoi;
 
             switch ($this->input->post('nomTournoi', TRUE)):
-                case 'nationaux':
+                case 'Criterium National':
                     $coeff = 3;
                     break;
-                case 'interdépartementaux':
+                case 'Inter-départemental':
                     $coeff = 2;
                     break;
                 default:
