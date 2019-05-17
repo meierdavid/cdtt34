@@ -8,7 +8,7 @@
         <?php echo form_open('user/create'); ?>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
-            <input id="create_num_licence" type="text" class="form-control" name="idUser"  value="<?php echo set_value('idUser'); ?>" size="30" required /> 
+            <input id="create_num_licence" type="number" class="form-control" name="idUser"  value="<?php echo set_value('idUser'); ?>" size="30" required /> 
         </div>
         <div class="form-group">
             <label for="create_nom_joueur" class="control-label">Nom du joueur</label>
@@ -20,11 +20,11 @@
         </div>
         <div class="form-group">
             <label for="create_classement_joueur" class="control-label">Classement du joueur</label>
-            <input id="create_classement_joueur" type="numeric" class="form-control" name="classementUser"  value="<?php echo set_value('classementUser'); ?>" size="30" required /> 
+            <input id="create_classement_joueur" type="number" class="form-control" name="classementUser"  value="<?php echo set_value('classementUser'); ?>" size="30" required /> 
         </div>
         <div class="form-group">
             <label for="create_classementP_joueur" class="control-label">Classement provisoire du joueur</label>
-            <input id="create_classementP_joueur" type="numeric" class="form-control" name="classementProvisoireUser"  value="<?php echo set_value('classementProvisoireUser'); ?>" size="30" required /> 
+            <input id="create_classementP_joueur" type="number" class="form-control" name="classementProvisoireUser"  value="<?php echo set_value('classementProvisoireUser'); ?>" size="30" required /> 
         </div>
         <div class="form-group">
             <label for="create_dateDeNaissance" class="control-label" >date de naissance :</label>
