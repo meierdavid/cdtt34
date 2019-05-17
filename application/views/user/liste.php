@@ -11,7 +11,7 @@
                                         <div class="text-center ml-3 mb-3">
                                             <a class="btn btn-primary" href="<?php echo base_url('user/create'); ?>" role="button">Ajouter un joueur</a>
                                         </div>
-<?php } ?>
+                                <?php } ?>
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
                                         <table id="table" class="table table-striped table-bordered text-center">

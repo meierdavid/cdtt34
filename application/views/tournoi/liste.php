@@ -6,6 +6,9 @@
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
                             <h2>Liste des Tournois</h2>
+                            <?php if ($isAdmin) { ?>
+                                        <div class="text-center ml-3 mb-3"><a class="btn btn-primary" href="<?php echo base_url('tournoi/create') ?>" role="button">Créer un tournoi</a></div>
+                                    <?php } ?>
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive mb-3">
@@ -32,9 +35,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <?php if ($isAdmin) { ?>
-                                        <div class="text-center mb-3"><a class="btn btn-primary" href="<?php echo base_url('tournoi/create') ?>" role="button">Créer un tournoi</a></div>
-                                    <?php } ?>
+                                    
                                 </article>
                             </div>
                         </div>
