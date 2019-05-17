@@ -6,7 +6,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
-        <?php echo form_open('user/update' . $user[0]->idUser); ?>
+        <?php echo form_open('user/update/' . $user[0]->idUser); ?>
         <div class="form-group">
             <label for="update_num_licence" class="control-label">Numéro de licence</label>
             <input id="update_num_licence"  type="text" class="form-control" name="idUser"  value="<?php echo $user[0]->idUser ?>" size="30" required /> 
