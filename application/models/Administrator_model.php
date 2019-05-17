@@ -13,11 +13,16 @@ class Administrator_model extends CI_Model {
     
     public function validateToken($mail,$token){
         $admin = $this->db->select(array('mail', 'token'))->get_where($this->_table, array('mail' => $mail))->row();
+        var_dump($admin->token);
+        die;
         return ($token == $this->encryption->decrypt($admin->token));
     }
     
     public function validate($mail, $password) {
         $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
+        var_dump($password);
+        var_dump(password_verify($password, $admin->password));
+        die;
         return password_verify($password, $admin->password);
     }
 
