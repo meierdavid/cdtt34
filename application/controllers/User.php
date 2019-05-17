@@ -126,7 +126,6 @@ class User extends Administrator {
             $club = $this->club_model->find(['nomClub' =>  $this->input->post('nomClub', TRUE)]);
             $numClub = $club[0]->numClub;
             $test = $this->user_model->update(['idUser' => $id], [
-                'idUser' => htmlspecialchars($this->input->post('idUser',TRUE)),
                 'nomUser' => htmlspecialchars($this->input->post('nomUser',TRUE)),
                 'prenomUser' => htmlspecialchars($this->input->post('prenomUser',TRUE)),
                 'classementUser' => htmlspecialchars($this->input->post('classementUser',TRUE)),
