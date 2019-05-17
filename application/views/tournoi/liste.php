@@ -8,7 +8,7 @@
                             <h2>Liste des Tournois</h2>
                             <div class="row">
                                 <article class=" col-md-11 col-lg-11">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive mb-3">
                                         <table id="table" class="table table-striped table-bordered text-center ">
                                             <thead class="thead-dark">
                                                 <tr>
