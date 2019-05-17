@@ -1,13 +1,9 @@
 <div class="container text-center">
 <h2><?php echo $user[0]->prenomUser . " " . $user[0]->nomUser; ?></h2>            
-<p>Licence</p>                                    
-<p><?php echo $user[0]->idUser; ?></p>
-<p>Classement début de saison</p>
-<p><?php echo $user[0]->classementUser; ?></p>
-<p>Classement actuel</p>
-<p><?php echo $user[0]->classementProvisoireUser; ?></p>
-<p>Date de Naissance</p>
-<p><?php echo $user[0]->dateDeNaissance; ?></p>
+<p>Licence : <?php echo $user[0]->idUser; ?></p>
+<p>Classement début de saison : <?php echo $user[0]->classementUser; ?></p>
+<p>Classement actuel : <?php echo $user[0]->classementProvisoireUser; ?></p>
+<p>Date de Naissance : <?php echo $user[0]->dateDeNaissance; ?></p>
 </div>
 
 <h1>Historique des matchs</h1>
