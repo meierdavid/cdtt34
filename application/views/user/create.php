@@ -39,8 +39,7 @@
 
         </div>
 
-
-        <button class="btn-primary" type="submit"/>Enregistrer</button>
+        <button class="btn btn-primary" type="submit"/>Enregistrer</button>
 
         </form>  
     </div>
