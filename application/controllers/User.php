@@ -146,23 +146,20 @@ class User extends Administrator {
 
     public function delete($id) {
         $this->load->model('rencontre_model');
-        $rencontres = $this->rencontre_model->selectById($id);
-        var_dump($rencontres);
-      
+        $rencontres = $this->rencontre_model->selectById($id);    
         if($rencontres != null ){
-            var_dump("rencontre != null");
-              die;
              $message_erreur = "Vous ne pouvez pas supprimer un joueur qui à déja réalisé des rencontres";
              $this->liste($message_erreur);
         }
-          die;
-        $test = $this->user_model->delete(['idUser' => $id]);
-        if ($test) {
-            $message = "Le joueur à bien été supprimé";
-            $this->liste($message);
-        } else {
-            $message_erreur = "La suppression n'a pas fonctionné";
-            $this->liste($message_erreur);
+        else{
+          $test = $this->user_model->delete(['idUser' => $id]);
+          if ($test) {
+              $message = "Le joueur à bien été supprimé";
+              $this->liste($message);
+          } else {
+              $message_erreur = "La suppression n'a pas fonctionné";
+              $this->liste($message_erreur);
+          }
         }
     }
 
