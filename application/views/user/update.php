@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="update_club" class="control-label">Club du joueur</label>
-            <input id="update_club" type="text" class="form-control" name="numClub"  value="<?php echo $user[0]->numClub ?>" size="30" required /> 
+            <input id="update_club" type="text" class="form-control" name="nomClub"  value="<?php echo $club[0]->nomClub ?>" size="30" required /> 
         </div>
 
         <div class="text-center"><input class="btn-primary" type="submit" value="créer" /></div>

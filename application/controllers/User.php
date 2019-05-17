@@ -113,12 +113,14 @@ class User extends Administrator {
         $this->form_validation->set_rules('prenomUser', 'Prénom', 'required');
         $this->form_validation->set_rules('classementUser', 'Classement', 'required|greater_than[4]|less_than[16]');
         $this->form_validation->set_rules('classementProvisoireUser', 'Classement provisoire', 'required');
-        $this->form_validation->set_rules('numClub', 'numClub', 'required');
+        $this->form_validation->set_rules('nomClub', 'nomClub', 'required');
         if ($this->form_validation->run() == FALSE) {
             $data['user'] = $this->user_model->find(['idUser' => $id]);
+            $data['club'] = $this->club_model->find(['numClub' =>  $data['user'][0]->numClub]);
             $this->layout->view('user/update', $data);
         } else {
-
+            $club = $this->club_model->find(['nomClub' =>  $this->input->post('nomClub', TRUE)]);
+            $numClub = $club[0]->numClub;
             $test = $this->user_model->update(['idUser' => $id], ['nomUser' => htmlspecialchars($this->input->post('nomUser',TRUE)),
                 'prenomUser' => htmlspecialchars($this->input->post('prenomUser',TRUE)),
                 'classementUser' => htmlspecialchars($this->input->post('classementUser',TRUE)),
@@ -130,6 +132,7 @@ class User extends Administrator {
                 $this->profil($id);
             } else {
                 $data['user'] = $this->user_model->find(['numUser' => $id]);
+                $data['club'] = $this->club_model->find(['numClub' =>  $data['user'][0]->numClub]);
                 $this->layout->view('user/update', $data);
             }
         }
