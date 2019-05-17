@@ -7,6 +7,8 @@ include(APPPATH . 'modules/Administrator.php');
 
 class Club extends Administrator {
 
+    //load library/model/database 
+    //nécesaire aux fonctions de club
     public function __construct() {
 
         parent::__construct();
@@ -18,10 +20,14 @@ class Club extends Administrator {
         $this->load->library('layout');
     }
 
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
         $this->liste();
     }
 
+//load la view club/liste avec toutes les données de la table club
+// et le département qui correspond à chaque lignes dans la table club
     public function liste() {
         $this->load->model('departement_model');
         $data['isAdmin'] = parent::isAdmin();

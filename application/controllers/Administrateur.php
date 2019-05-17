@@ -7,6 +7,10 @@ include(APPPATH . 'modules/Administrator.php');
 
 class Administrateur extends Administrator {
 
+    
+    //load library/model/database 
+    //nécesaire aux fonctions d'administrateur
+    
     public function __construct() {
 
         parent::__construct();
@@ -17,17 +21,22 @@ class Administrateur extends Administrator {
         $this->load->model('admin_model');
         $this->load->library('layout');
     }
-
+    
+//fonction appelée da base 
+//appelle la fonction liste()
     public function index() {
-        $data['isAdmin'] = parent::isAdmin();
         $this->liste();
     }
-
+    
+//load la view administrateur/liste avec toutes les données de la table admin
     public function liste() {
         $data['isAdmin'] = parent::isAdmin();
         $data['administrateur'] = $this->admin_model->findAll();
         $this->layout->view('administrateur/liste', $data);
     }
+
+//load la view administrateur profil avec les données
+//qui correspondent au mail encrypté dans le cookie du client
 
     public function profil() {
         $data['isAdmin'] = parent::isAdmin();
@@ -37,6 +46,7 @@ class Administrateur extends Administrator {
         $this->layout->view('administrateur/profil', $data);
     }
 
+//delete l'admin qui à pour id celui passé en parametre
     public function delete($id) {
         $data['isAdmin'] = parent::isAdmin();
         $test = $this->admin_model->delete(['id' => $id]);
@@ -49,6 +59,8 @@ class Administrateur extends Administrator {
         }
     }
 
+//créer un admin ave un mail et un password
+//encrypte le password dans la bd
     public function create() {
         $data['isAdmin'] = parent::isAdmin();
 
@@ -69,6 +81,7 @@ class Administrateur extends Administrator {
         }
     }
 
+//affiche la vue administrateur/modifmdp pour l'admin connecté
     public function updateMdp() {
         $data['isAdmin'] = parent::isAdmin();
         $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
@@ -77,6 +90,12 @@ class Administrateur extends Administrator {
         $this->layout->view('administrateur/modifmdp', $data);
     }
 
+ // vérfie que le champ oldPassword est le mdp actuel de l'admin connecté avec la fonction passwordCheck
+ // vérifie que les champs newPassword et newPasswordConfirm sont identiques
+ // Si les form_validation sont vérifié :
+ // encrypte et update le nouveau mot de passe
+ // sinon
+ // rappel la fonction updateMdp
     public function modifMdp() {
 
         $this->form_validation->set_rules("oldPassword", "Old Password", "required|callback_passwordCheck");
@@ -96,6 +115,7 @@ class Administrateur extends Administrator {
         }
     }
 
+    //vérifie que le password actuel correspond à oldPassword 
     public function passwordCheck() {
         $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
         $Oldpass = $this->input->post('oldPassword', TRUE);
@@ -109,7 +129,7 @@ class Administrateur extends Administrator {
             return false;
         }
     }
-
+   // supprime les cookies de l'admin connecté
     public function deconnexion() {
         $cookieid = parent::getCookieIdName();
         $cookiepwd = parent::getCookiePwdName();
