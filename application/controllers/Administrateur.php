@@ -134,11 +134,12 @@ class Administrateur extends Administrator {
     public function deconnexion() {
         $cookieid = parent::getCookieIdName();
         $cookieToken = parent::getCookieTokenName();
-        $this->admin_model->update(["mail" => $this->encryption->decrypt($cookieid)],["token" => NULL]); 
+        $mail = get_cookie($this->config->item('cookie_prefix') . $cookieid, TRUE);
+        $mail = $this->encryption->decrypt($mail);            
+        $this->admin_model->update(["mail" => $mail],["token" => NULL]); 
         delete_cookie($cookieid);
         delete_cookie($cookieToken);     
         $data['isAdmin'] = parent::isAdmin();
         redirect(base_url('welcome'));
     }
-
 }
