@@ -122,13 +122,11 @@ class User extends Administrator {
         } else {
             $club = $this->club_model->find(['nomClub' =>  $this->input->post('nomClub', TRUE)]);
             $numClub = $club[0]->numClub;
-            var_dump($club);
-            var_dump($numClub);
             $test = $this->user_model->update(['idUser' => $id], ['nomUser' => htmlspecialchars($this->input->post('nomUser',TRUE)),
                 'prenomUser' => htmlspecialchars($this->input->post('prenomUser',TRUE)),
                 'classementUser' => htmlspecialchars($this->input->post('classementUser',TRUE)),
                 'classementProvisoireUser' => htmlspecialchars($this->input->post('classementProvisoireUser', TRUE)),
-                'numClub' => htmlspecialchars($this->input->post('numClub', TRUE)),
+                'numClub' => htmlspecialchars($numClub),
                 'dateDeNaissance' => htmlspecialchars($this->input->post('dateDeNaissance', TRUE)),
             ]);
             if ($test) {
