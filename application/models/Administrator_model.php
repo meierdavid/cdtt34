@@ -20,9 +20,6 @@ class Administrator_model extends CI_Model {
     
     public function validate($mail, $password) {
         $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
-        var_dump($password);
-        var_dump(password_verify($password, $admin->password));
-        die;
         return password_verify($password, $admin->password);
     }
 

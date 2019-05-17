@@ -46,7 +46,8 @@ class Administrator extends CI_Controller {
                 $cookies_token['prefix'] = $this->config->item('cookie_prefix');
                 set_cookie($cookies_token);
                 //enregistrer le Token dans la bd
-                $this->admin->update(["mail" => $this->input->post('identifiant', TRUE)],["token" => $this->encryption->encrypt($random_string)]);
+                $test =$this->admin->update(["mail" => $this->input->post('identifiant', TRUE)],["token" => $this->encryption->encrypt($random_string)]);
+                var_dump($test);
                 // Tout est ok, on redirige vers la page d'accueil de l'admin
                 redirect(base_url("welcome"));
             } else {
