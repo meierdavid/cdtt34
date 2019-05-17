@@ -15,5 +15,8 @@
         </form>
         
     </div>
-    <p>Cette page de connection est dédié aux responsables départemental</p>
+    <div class="text-center">
+        <p>Cette page de connection est dédié aux responsables départemental</p>
+    </div>
+
 </div>
