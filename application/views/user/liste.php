@@ -5,18 +5,19 @@
                 <div class="row">
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
-                            <?php if(isset($message)){
-                                
-                                echo "<p class=\"text-warning\">".$message."</p>";
+                            <?php
+                            if (isset($message)) {
+
+                                echo "<p class=\"text-warning\">" . $message . "</p>";
                             }
                             ?>
                             <h2>Liste des Joueurs</h2>
                             <div class="row">
-                                <?php if ($isAdmin) { ?>
-                                        <div class="text-center ml-3 mb-3">
-                                            <a class="btn btn-primary" href="<?php echo base_url('user/create'); ?>" role="button">Ajouter un joueur</a>
-                                        </div>
-                                <?php } ?>
+<?php if ($isAdmin) { ?>
+                                    <div class="text-center ml-3 mb-3">
+                                        <a class="btn btn-primary" href="<?php echo base_url('user/create'); ?>" role="button">Ajouter un joueur</a>
+                                    </div>
+<?php } ?>
                                 <article class=" col-md-11 col-lg-11">
                                     <div class="table-responsive">
                                         <table id="table" class="table table-striped table-bordered text-center">
@@ -30,16 +31,17 @@
                                                     <th scope="col">Date de naissance</th>
                                                     <th scope="col">Club</th>
 
-                                                    <?php if ($isAdmin) { ?>
+<?php if ($isAdmin) { ?>
                                                         <th scope="col">Supprimer</th>
                                                         <th scope="col">Modifier</th>
-                                                    <?php } ?>
+<?php } ?>
 
                                                 </tr>
                                             </thead>
-                                            <tbody><?php $i = 0;
-                                                    foreach ($user as $item) {
-                                                        ?>
+                                            <tbody><?php
+                                                $i = 0;
+                                                foreach ($user as $item) {
+                                                    ?>
                                                     <tr>
 
                                                         <td><?php echo $item->idUser; ?></td>
@@ -49,11 +51,11 @@
                                                         <td><?php echo $item->classementProvisoireUser; ?></td>
                                                         <td><?php echo $item->dateDeNaissance; ?></td>
                                                         <td><a  href="<?php echo base_url("club/joueurs/" . $clubs[$i]['numClub']); ?>"><?php echo $clubs[$i]['nomClub'] ?></a></td>
-    <?php if ($isAdmin) { ?>
-                                                            <td><p><a id= "supprimer" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png"); ?>"></a></p></td>
-                                                            <td><p><a id= "supprimer" href="<?php echo base_url("User/update/" . $item->idUser); ?>"><img src="<?php echo base_url("assets/image/update.png"); ?>"></a></p></td>
+                                                    <?php if ($isAdmin) { ?>
+                                                            <td><p><a id= "supprimer-user" href="<?php echo base_url("User/delete/" . $item->idUser); ?>" onclick="return(validate())"><img src="<?php echo base_url("assets/image/delete.png"); ?>"></a></p></td>
+                                                            <td><p><a id= "modifier-user" href="<?php echo base_url("User/update/" . $item->idUser); ?>"><img src="<?php echo base_url("assets/image/update.png"); ?>"></a></p></td>
 
-    <?php } ?>
+                                                    <?php } ?>
 
                                                     </tr>
                                                     <?php

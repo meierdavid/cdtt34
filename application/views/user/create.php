@@ -5,7 +5,9 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
+        <div class="form-group">
         <h2>Création de joueurs</h2>
+        </div>
         <?php echo form_open('user/create'); ?>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
