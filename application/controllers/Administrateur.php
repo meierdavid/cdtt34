@@ -14,10 +14,8 @@ class Administrateur extends Administrator {
     public function __construct() {
          //appel du constructeur de Administrator qui vérifie l'authentification et les fonctions accessible sans authentification
         parent::__construct();
-
         $this->load->library('form_validation');
         $this->load->database();
-
         $this->load->model('admin_model');
         $this->load->library('layout');
     }
@@ -136,7 +134,7 @@ class Administrateur extends Administrator {
     public function deconnexion() {
         $cookieid = parent::getCookieIdName();
         $cookieToken = parent::getCookieTokenName();
-        $this->admin_model->update(["mail" => $this->encryption->decode($cookieid)],["token" => NULL]); 
+        $this->admin_model->update(["mail" => $this->encryption->decrypt($cookieid)],["token" => NULL]); 
         delete_cookie($cookieid);
         delete_cookie($cookieToken);     
         $data['isAdmin'] = parent::isAdmin();
