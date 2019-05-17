@@ -7,10 +7,11 @@
                         <div class="col-md-12 col-md-offset-2">
                             <div class="box">
                                 <h2>Liste des Administrateurs</h2>
-                                <div class="text-center mb-3 ml-3">
+                                
+                                <div class="row">
+                                    <div class="text-center mb-3 ml-3">
                                             <a class="btn btn-primary " href="<?php echo base_url('administrateur/create'); ?>" role="button">Créer un administrateur</a>
                                 </div>
-                                <div class="row">
                                     <article class=" col-md-11 col-lg-11">
                                         <div class="table-responsive mb-3">
                                             <table  id="table" class=" table table-striped table-bordered text-center ">
