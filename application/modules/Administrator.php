@@ -58,7 +58,7 @@ class Administrator extends CI_Controller {
             $mail = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name));
             $token = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_token));
             if ($this->administrator_model->validateToken($mail, $token) == FALSE)
-                redirect(base_url("admin/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
+                redirect(base_url("welcome/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
         }
        elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
             redirect(base_url('welcome/fail')); //page d'
