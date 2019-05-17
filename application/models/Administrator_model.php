@@ -13,8 +13,6 @@ class Administrator_model extends CI_Model {
     
     public function validateToken($mail,$token){
         $admin = $this->db->select(array('mail', 'token'))->get_where($this->_table, array('mail' => $mail))->row();
-        var_dump($admin->token);
-        die;
         return ($token == $this->encryption->decrypt($admin->token));
     }
     
