@@ -109,6 +109,7 @@ class User extends Administrator {
 
     public function update($id) {
         $data['isAdmin'] = parent::isAdmin();
+        $this->load->model('club_model');
         $this->form_validation->set_rules('nomUser', 'Nom', 'required');
         $this->form_validation->set_rules('prenomUser', 'Prénom', 'required');
         $this->form_validation->set_rules('classementUser', 'Classement', 'required|greater_than[4]|less_than[16]');

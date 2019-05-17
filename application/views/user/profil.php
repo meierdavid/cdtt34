@@ -3,8 +3,6 @@
     <thead>
         <tr>
             <th scope="col">Licence</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
             <th scope="col">Classement début de saison</th>
             <th scope="col">Classement actuel</th>
             <th scope="col">Date de Naissance</th>
@@ -14,8 +12,6 @@
     <tbody> 
         <tr>
             <td><?php echo $user[0]->idUser; ?></td>
-            <td><?php echo $user[0]->nomUser; ?></td>
-            <td><?php echo $user[0]->prenomUser; ?></td>
             <td><?php echo $user[0]->classementUser; ?></td>
             <td><?php echo $user[0]->classementProvisoireUser; ?></td>
             <td><?php echo $user[0]->dateDeNaissance; ?></td>
