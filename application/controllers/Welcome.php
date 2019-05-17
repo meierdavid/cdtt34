@@ -19,10 +19,10 @@ class Welcome extends Administrator {
 //appelle la fonction liste()
     public function index() {
         $data['isAdmin'] = parent::isAdmin();
-
         $this->layout->view('accueil', $data);
     }
 
+    //load la page de connexion
     function connexion() {
         $data['isAdmin'] = parent::isAdmin();
         $this->layout->view('administrateur/connexion', $data);
@@ -30,7 +30,6 @@ class Welcome extends Administrator {
 
     function fail() {
         $data['isAdmin'] = parent::isAdmin();
-
         $this->layout->views('errors/connexion', $data);
         $this->layout->view('administrateur/connexion', $data);
     }

@@ -23,18 +23,27 @@ class Tournoi extends Administrator {
         $this->liste();
     }
 
-    public function liste() {
+//load la view tournoi/liste avec toutes les données de la table departement
+    public function liste($message = NULL) {
         $data['isAdmin'] = parent::isAdmin();
         $data['tournoi'] = $this->tournoi_model->findAll();
+        if(isset($message)){
+            $data['message'] = $message;
+        }
         $this->layout->view('tournoi/liste', $data);
     }
-
+    
+//cherche le tournoi qui a pour id celui passé en paramètre
+// affiche son profil
+    /*
     public function profil($id) {
         $data['isAdmin'] = parent::isAdmin();
         $data['tournoi'] = $this->tournoi_model->find(['numTournoi' => $id]);
         $this->layout->view('tournoi/profil', $data);
     }
-
+    */
+    
+    //créer un nouveau tournoi 
     public function create() {
         $data['isAdmin'] = parent::isAdmin();
         $this->form_validation->set_rules('nomTournoi', 'nom du tournoi', 'required');
@@ -50,7 +59,9 @@ class Tournoi extends Administrator {
             }
         }
     }
-
+    
+    // modifie le tournoi dont l'id est passé en paramètre
+    // apres modification affiche la liste des tournoi
     public function update($id) {
         $data['isAdmin'] = parent::isAdmin();
         $this->form_validation->set_rules('nomTournoi', 'Tournoi', 'required');
@@ -72,22 +83,31 @@ class Tournoi extends Administrator {
         }
     }
 
+//supprime un tournoi si aucune rencontre n'a eu lieu pendant le tournoi
     public function delete($id) {
         $data['isAdmin'] = parent::isAdmin();
-        $test = $this->tournoi_model->delete(['numTournoi' => $id]);
-        if ($test) {
-            //delete ok
-            $this->liste();
-        } else {
-            //delete fail
-            $this->liste();
+        $this->load->model('rencontre_model');
+        $rencontres = $this->rencontre_model->find(['numTournoi' => $id]);    
+        if($rencontres != null ){
+             $message_erreur = "Vous ne pouvez pas supprimer un tournoi où s'est déja réalisé des rencontres";
+             $this->liste($message_erreur);
         }
+        else{
+          $test = $this->tournoi_model->delete(['numTournoi' => $id]);
+          if ($test) {
+              $message = "Le tournoi à bien été supprimé";
+              $this->liste($message);
+          } else {
+              $message_erreur = "La suppression n'a pas fonctionné";
+              $this->liste($message_erreur);
+          }
+      }
     }
 
+    //cherche tous les tournoi et formate les données en Json
     public function findAll() {
         $data['isAdmin'] = parent::isAdmin();
         $data = $this->tournoi_model->findAll();
         echo json_encode($data);
     }
-
 }

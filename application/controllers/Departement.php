@@ -28,15 +28,16 @@ class Departement extends Administrator {
 
 //load la view departement/liste avec toutes les données de la table departement
     public function liste($message = NULL) {
-
-        $data['message'] = $message;
+        if(isset($message)){
+            $data['message'] = $message;
+        }
         $data['isAdmin'] = parent::isAdmin();
         $data['departement'] = $this->departement_model->findAll();
 
         $this->layout->view('departement/liste', $data);
     }
 
-//cherche tous les Departements et encode les données en Json
+//cherche tous les Departements et formate les données en Json
     public function findAll() {
         $data['isAdmin'] = parent::isAdmin();
         $data = $this->departement_model->findAll();

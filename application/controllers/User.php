@@ -19,27 +19,27 @@ class User extends Administrator {
         $this->liste();
     }
 
+    //load la view user/liste avec toutes les données de la table user
+    // ainsi que le club dans lequel ils se trouvent
     public function liste( $message = NULL) {
-        //afficher le nom du club ( clickable )
         $data['isAdmin'] = parent::isAdmin();
         $data['user'] = $this->user_model->findAll();
         $this->load->model('club_model');
         if(isset($message)){
           $data['message']= $message;
         }
-
         $i = 0;
         foreach ($data['user'] as $item) {
             $club = $this->club_model->find(['numClub' => $item->numClub]);
             $data['clubs'][$i]['nomClub'] = $club[0]->nomClub;
             $data['clubs'][$i]['numClub'] = $club[0]->numClub;
-
             $i++;
         }
-
         $this->layout->view('user/liste', $data);
     }
-
+    
+    //affiche le profil du joueurs (user) passé en paramètre
+    // ainsi que son historique des rencontres
     public function profil($id) {
         $data['isAdmin'] = parent::isAdmin();
         $data['user'] = $this->user_model->find(['idUser' => $id]);
@@ -62,27 +62,14 @@ class User extends Administrator {
             $data['historique'][$i]['numGagnant'] = $item->numGagnant;
             $i++;
         }
-
-
-        // faire une seule requete pour trouver tous les match et les sort par date 
-        //pour ensuite les afficher dans la vue correctement 
-        //avec Date nomGagnant pointGagnant point Perdant Perdant
-        // chaque joueurs est clickable
-        //voir si on affiche les tournoi ou pas ...
-
-
-
-
         $this->layout->view('user/profil', $data);
     }
-
+    
+    //créer un joueur(user) 
     public function create() {
         $data['isAdmin'] = parent::isAdmin();
         $this->load->model('club_model');
-
-        //provide data form all club with a dropdown list
-        //
-            //faire la form validation des numéro de licence apres dev
+        //faire la form validation des numéro de licence apres dev
         $this->form_validation->set_rules('idUser', 'Licence', 'required');
         $this->form_validation->set_rules('nomUser', 'Nom', 'required');
         $this->form_validation->set_rules('prenomUser', 'Prénom', 'required');
@@ -92,10 +79,10 @@ class User extends Administrator {
         if ($this->form_validation->run() == FALSE) {
             $this->layout->view('user/create', $data);
         } else {
-
-            //CHERCHER LE NUM CLUB EN FONCTION DU NOM
+            //Cherche le numClub en fonction du nomClub
             $club = $this->club_model->find(['nomClub' => htmlspecialchars($this->input->post('nomClub', TRUE))]);
             $numClub = $club[0]->numClub;
+            //enregistre les valeurs rentrées par l'admin sur le formulaire user/create
             $values = ['idUser' => htmlspecialchars($this->input->post('idUser', TRUE)),
                 'nomUser' => htmlspecialchars($this->input->post('nomUser', TRUE)),
                 'prenomUser' => htmlspecialchars($this->input->post('prenomUser', TRUE)),
@@ -164,16 +151,14 @@ class User extends Administrator {
           }
         }
     }
-
+//cherche tous les noms des joueurs et formate les données en Json
     public function findLastName() {
-
         $names = $this->user_model->findLastName();
         echo json_encode($names);
     }
-
+//cherche tous les prenoms des jouers et formate les données en Json
     public function findFirstName() {
         $names = $this->user_model->findFirstName();
         echo json_encode($names);
     }
-
 }

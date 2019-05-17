@@ -32,7 +32,9 @@ class Administrateur extends Administrator {
     public function liste($message = NULL) {
         $data['isAdmin'] = parent::isAdmin();
         $data['administrateur'] = $this->admin_model->findAll();
-        $data['message'] = $message;
+        if(isset($message)){
+            $data['message'] = $message;
+        }
         $this->layout->view('administrateur/liste', $data);
     }
 

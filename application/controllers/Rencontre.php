@@ -45,6 +45,9 @@ class Rencontre extends Administrator {
             $data['historique'][$i]['numGagnant'] = $item->numGagnant;
             $i++;
         }
+        if(isset($message)){
+            $date['message'] = $message;
+        }
         $this->layout->view('rencontre/liste', $data);
     }
  /*   
@@ -142,7 +145,7 @@ class Rencontre extends Administrator {
     }
     */
     
-    
+    //supprime une rencontre
     public function delete($id) {
         $data['isAdmin'] = parent::isAdmin();
         $rencontre = $this->rencontre_model->find(['numRencontre' => $id]);

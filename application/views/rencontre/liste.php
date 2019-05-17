@@ -6,6 +6,11 @@
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
                             <h2>Liste des Rencontres</h2>
+                             <?php if(isset($message)){
+                                
+                                echo "<p class=\"text-warning\">".$message."</p>";
+                            }
+                            ?>
                             <?php if (isset($historique)) { ?>
                                 <div class="row">
                                     <article class=" col-md-11 col-lg-11">

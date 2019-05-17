@@ -32,7 +32,9 @@ class Club extends Administrator {
         $this->load->model('departement_model');
         $data['isAdmin'] = parent::isAdmin();
         $data['club'] = $this->club_model->findAll();
-        $data['message'] = $message;
+        if(isset($message)){
+            $data['message'] = $message;
+        }
         $i = 0;
         foreach ($data['club'] as $item) {
             $departement = $this->departement_model->find(['numDepartement' => $item->numDepartement]);
@@ -45,7 +47,7 @@ class Club extends Administrator {
         $this->layout->view('club/liste', $data);
     }
 
-//cherche tous les clubs et encode les données en Json
+//cherche tous les clubs et formate les données en Json
     public function findAll() {
         $data['isAdmin'] = parent::isAdmin();
         $data = $this->club_model->findAll();
