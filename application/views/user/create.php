@@ -40,7 +40,7 @@
         </div>
 
 
-        <div class="text-center"><input class="btn-primary" type="submit" value="Enregistrer" /></div>
+        <button class="btn-primary" type="submit"/>Enregistrer</button>
 
         </form>  
     </div>
