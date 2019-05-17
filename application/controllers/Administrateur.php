@@ -114,7 +114,7 @@ class Administrateur extends Administrator {
             $data['isAdmin'] = parent::isAdmin();
             $mail = $this->encryption->decrypt($this->input->cookie("189CDS8CSDC98JCPDSCDSCDSCDSD8C9SD"));
             $password = htmlspecialchars($this->input->post('newPassword', TRUE));
-            $password = $this->encryption->decrypt($password);
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $this->admin_model->update(['mail' => $mail], ['password' => $password]);
             $this->deconnexion();
         }
@@ -126,8 +126,7 @@ class Administrateur extends Administrator {
         $Oldpass = $this->input->post('oldPassword', TRUE);
         $results = $this->admin_model->getOldPassword($mail);
         $currentPass = $results[0]->password;
-        $currentPass = $this->encryption->decrypt($currentPass);
-        if ($Oldpass == $currentPass) {
+        if(password_verify($Oldpass, $currentPass)) {
             return true;
         } else {
             $this->form_validation->set_message('passwordCheck', 'Invalid current password, please try again');
