@@ -27,7 +27,7 @@ class Club extends Administrator {
     }
 
 //load la view club/liste avec toutes les données de la table club
-// et le département qui correspond à chaque lignes dans la table club
+// et le département qui correspond à chaque club
     public function liste() {
         $this->load->model('departement_model');
         $data['isAdmin'] = parent::isAdmin();
@@ -44,12 +44,15 @@ class Club extends Administrator {
         $this->layout->view('club/liste', $data);
     }
 
+//cherche tous les clubs et encode les données en Json
     public function findAll() {
         $data['isAdmin'] = parent::isAdmin();
         $data = $this->club_model->findAll();
         echo json_encode($data);
     }
 
+//cherche le club qui à pour id celui passé en paramètre
+// affiche son profil
     public function profil($id) {
         $data['isAdmin'] = parent::isAdmin();
         $data['club'] = $this->club_model->find(['numClub' => $id]);

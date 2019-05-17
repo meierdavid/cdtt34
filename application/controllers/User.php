@@ -16,11 +16,14 @@ class User extends Administrator {
         $this->liste();
     }
 
-    public function liste() {
+    public function liste( $message = NULL) {
         //afficher le nom du club ( clickable )
         $data['isAdmin'] = parent::isAdmin();
         $data['user'] = $this->user_model->findAll();
         $this->load->model('club_model');
+        if(isset($message)){
+          $data['message']= $message;
+        }
 
         $i = 0;
         foreach ($data['user'] as $item) {
@@ -142,14 +145,19 @@ class User extends Administrator {
     }
 
     public function delete($id) {
-
+        $this->load->model('rencontre_model');
+        $rencontres = $this->rencontre_model->selectById($id);
+        if($rencontres == null ){
+             $message_erreur = "Vous ne pouvez pas supprimer un joueur qui à déja réalisé des rencontres";
+             $this->liste($message_erreur);
+        }
         $test = $this->user_model->delete(['idUser' => $id]);
         if ($test) {
-            //delete ok
-            $this->liste();
+            $message = "Le joueur à bien été supprimé";
+            $this->liste($message);
         } else {
-            //delete fail
-            $this->liste();
+            $message_erreur = "La suppression n'a pas fonctionné";
+            $this->liste($message_erreur);
         }
     }
 

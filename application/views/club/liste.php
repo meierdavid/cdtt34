@@ -48,11 +48,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <?php if ($isAdmin) { ?>
-                                        <div class="text-center mb-3">
-                                            <a class="btn btn-primary " href="<?php echo base_url('club/create'); ?>" role="button">Créer un club</a>
-                                        </div>
-                                    <?php } ?>
                                 </article>
                             </div>
                         </div>

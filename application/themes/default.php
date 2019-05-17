@@ -37,7 +37,7 @@
                         <a href="<?php echo base_url('club'); ?>" class="nav-link " >Clubs</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo base_url('departement'); ?>" class="nav-link " >Departement</a>
+                        <a href="<?php echo base_url('departement'); ?>" class="nav-link " >Département</a>
                     </li>
                     <?php if ($isAdmin) { ?>
                         <li class="nav-item">

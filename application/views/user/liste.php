@@ -5,6 +5,11 @@
                 <div class="row">
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
+                            <?php if(isset($message)){
+                                
+                                echo "<p class=\"text-warning\">".$message."</p>";
+                            }
+                            ?>
                             <h2>Liste des Joueurs</h2>
                             <div class="row">
                                 <?php if ($isAdmin) { ?>

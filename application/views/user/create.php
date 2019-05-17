@@ -5,6 +5,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
+        <h2>Création de joueurs</h2>
         <?php echo form_open('user/create'); ?>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
@@ -27,7 +28,7 @@
             <input id="create_classementP_joueur" type="number" class="form-control" name="classementProvisoireUser"  value="<?php echo set_value('classementProvisoireUser'); ?>" size="30" required /> 
         </div>
         <div class="form-group">
-            <label for="create_dateDeNaissance" class="control-label" >date de naissance :</label>
+            <label for="create_dateDeNaissance" class="control-label" >Date de naissance :</label>
             <input id="create_dateDeNaissance" class=" bg-light " name="dateDeNaissance" type="date" value="<?php echo set_value('dateDeNaissance'); ?>">
         </div>
         <div id="select-club">
