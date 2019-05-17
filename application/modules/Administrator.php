@@ -26,7 +26,6 @@ class Administrator extends CI_Controller {
         $this->load->helper(array('url', 'assets'));
         $this->load->model('user_model');
         $this->load->library('layout');
-       
         $key = bin2hex($this->encryption->create_key(16));
         $method = $this->router->fetch_method();
         $class = $this->router->fetch_class();
@@ -61,7 +60,7 @@ class Administrator extends CI_Controller {
         }
         elseif (($class == 'administrateur') || ($class == 'rencontre')) {
             redirect(base_url('welcome/fail')); //page d'
-        } elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
+        } elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'joueurs') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
             redirect(base_url('admin/connexion/fail'));
         }
     }

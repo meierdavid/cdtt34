@@ -19,14 +19,13 @@
                                                         <th   scope="col">Supprimer</th>
                                                         <th scope="col">Modifier</th>
                                                     <?php } ?>
-                                                    <th scope="col">Voir</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <?php foreach ($departement as $item) { ?>
 
-                                                        <td><?php echo $item->nomDepartement; ?></td>
+                                                    <td><a href="<?php echo base_url("departement/clubs/" . $item->numDepartement); ?>"><?php echo $item->nomDepartement; ?></a></td>
                                                         <td><?php echo $item->numeroDepartement; ?></td>
                                                         <?php if ($isAdmin) { ?>
                                                             <td>
@@ -34,8 +33,7 @@
                                                             </td>
                                                             <td><a href="<?php echo base_url("departement/update/" . $item->numDepartement); ?>"><img src="<?php echo base_url("assets/image/update.png") ?>"></a></td>
                                                         <?php } ?>
-                                                        <td><p><a href="<?php echo base_url("departement/clubs/" . $item->numDepartement); ?>">Voir les clubs</a></p></td>
-
+                                                        
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
