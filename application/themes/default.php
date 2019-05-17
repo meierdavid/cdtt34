@@ -70,7 +70,10 @@
 
             <?php echo $output; ?>
         </div>
-        <?php if($footer == true){ ?>
+        <?php 
+        var_dump(footer);
+        die;
+        if($footer == true){ ?>
         <footer class="page-footer font-small blue mt-5 mb-0">
             <div class=" text-center ">
                 <a> Nous contacter</a>
