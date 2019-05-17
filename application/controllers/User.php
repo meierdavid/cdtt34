@@ -148,10 +148,14 @@ class User extends Administrator {
         $this->load->model('rencontre_model');
         $rencontres = $this->rencontre_model->selectById($id);
         var_dump($rencontres);
+      
         if($rencontres != null ){
+            var_dump("rencontre != null");
+              die;
              $message_erreur = "Vous ne pouvez pas supprimer un joueur qui à déja réalisé des rencontres";
              $this->liste($message_erreur);
         }
+          die;
         $test = $this->user_model->delete(['idUser' => $id]);
         if ($test) {
             $message = "Le joueur à bien été supprimé";
