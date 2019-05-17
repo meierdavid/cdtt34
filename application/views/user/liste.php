@@ -8,7 +8,7 @@
                             <h2>Liste des Joueurs</h2>
                             <div class="row">
                                 <?php if ($isAdmin) { ?>
-                                        <div class="text-center mb-3">
+                                        <div class="text-center ml-3 mb-3">
                                             <a class="btn btn-primary" href="<?php echo base_url('user/create'); ?>" role="button">Ajouter un joueur</a>
                                         </div>
 <?php } ?>
