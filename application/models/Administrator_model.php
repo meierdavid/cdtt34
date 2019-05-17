@@ -12,14 +12,12 @@ class Administrator_model extends CI_Model {
     }
 
     public function validate($mail, $password) {
-        if (($passwd_crypt = $this->_getAdmin($mail)) !== FALSE)
-            return (bool) ($password == $passwd_crypt);
-        return false;
+        $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
+        return password_verify($password, $admin->password);
     }
 
     private function _getAdmin($mail) {
-        $admin = $this->db->select(array('mail', 'password'))->get_where($this->_table, array('mail' => $mail))->row();
-        if (isset($admin->password))
+          if (isset($admin->password))
             return $this->encryption->decrypt($admin->password);
         return false;
     }
