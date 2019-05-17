@@ -8,7 +8,7 @@
         
         
         
-        <?php echo form_open('user/create'); ?>
+        <?php echo form_open('user/create','class="m-auto"'); ?>
         <h2>Création de joueurs</h2>
         <div class="form-group">
             <label for="create_num_licence" class="control-label">Numéro de licence</label>
@@ -40,7 +40,7 @@
         </div>
 
 
-        <div class="text-center"><input class="btn-primary" type="submit" value="créer" /></div>
+        <div class="text-center"><input class="btn-primary" type="submit" value="Enregistrer" /></div>
 
         </form>  
     </div>
