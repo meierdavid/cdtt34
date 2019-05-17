@@ -32,6 +32,9 @@
                     </li>
                     <?php if ($isAdmin) { ?>
                     <li class="nav-item">
+                        <a href="<?php echo base_url('rencontre'); ?>" class="nav-link " >Rencontres</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="<?php echo base_url('tournoi'); ?>" class="nav-link " >Tournois</a>
                     </li>
                     <?php } ?>

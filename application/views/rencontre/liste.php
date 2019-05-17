@@ -6,7 +6,6 @@
                     <div class="col-md-12 col-md-offset-2">
                         <div class="box">
                             <h2>Liste des Rencontres</h2>
-
                             <?php if (isset($historique)) { ?>
                                 <div class="row">
                                     <article class=" col-md-11 col-lg-11">
@@ -22,7 +21,6 @@
                                                         <?php if($isAdmin){?>
                                                         <th scope="col">Supprimer</th>
                                                         <?php }?>
-
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -30,8 +28,6 @@
                                                     foreach ($historique as $item) {
                                                        ?>
                                                     <tr>
-
-
                                                     <td><?php echo $item['date']; ?></td>
                                                     <td><a href="<?php echo base_url("User/profil/" . $item['numGagnant']); ?>"><?php echo $item['nomGagnant']; ?></a></td>
                                                     <td><?php echo $item['pointGagnant']; ?></td>
@@ -39,14 +35,12 @@
                                                     <td><?php echo $item['pointPerdant']; ?></td>
                                                     <td>
                                                         <a id="supprimer" href="<?php echo base_url("rencontre/delete/" . $item['numRencontre']); ?>" onclick="return(validate())">Supprimer la rencontre</a>
-                                                    </td>
-                                                    
+                                                    </td>                                                  
                                                     </tr>
                                                 <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
-
                                     </article>
                                 </div>
                             <?php
