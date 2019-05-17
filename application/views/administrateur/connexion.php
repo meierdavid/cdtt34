@@ -1,7 +1,8 @@
 <div class="row justify-content-md-center mt-5 mb-5">
 
     <div class="text-center">
-        
+        <p>Cette page de connection est dédié aux responsables départemental</p>
+
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
         <?php echo form_open("welcome/connexion"); ?>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -15,8 +16,8 @@
         </form>
         
     </div>
-    <div class="text-center">
-        <p>Cette page de connection est dédié aux responsables départemental</p>
-    </div>
+    
+        
+        
 
 </div>
