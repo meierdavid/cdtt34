@@ -147,7 +147,7 @@ class User extends Administrator {
     public function delete($id) {
         $this->load->model('rencontre_model');
         $rencontres = $this->rencontre_model->selectById($id);
-        if($rencontres == null ){
+        if($rencontres != null ){
              $message_erreur = "Vous ne pouvez pas supprimer un joueur qui à déja réalisé des rencontres";
              $this->liste($message_erreur);
         }
