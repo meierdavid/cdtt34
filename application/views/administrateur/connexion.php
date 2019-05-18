@@ -1,7 +1,6 @@
-<div class="row justify-content-md-center mt-5 mb-5">
-
-    <div class="text-center">
-
+<div class="container" >
+    <div style=" margin-top: 20%">
+    <div class="row ml-auto">
         <?php echo form_open("welcome/connexion",'class="m-auto"'); ?>
         <p class="text-warning">Cette page de connexion est dédiée aux responsables départementaux</p>
 
@@ -18,7 +17,7 @@
         
     </div>
     
-        
+    </div>
         
 
 </div>
