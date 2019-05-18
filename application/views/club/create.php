@@ -42,7 +42,7 @@
 
                 var html = '<label for="select-departement">Choisir un Departement </label>';
                 html += '<select name="nomDepartement" id="select-departement" required >';
-                html += '<option value="">--Selectionner un departement--</option>';
+                html += '<option value="">--Sélectionner un departement--</option>';
                 var i;
                 for (i = 0; i < data.length; i++) {
 
