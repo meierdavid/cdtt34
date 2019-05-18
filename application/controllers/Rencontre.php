@@ -216,8 +216,9 @@ class Rencontre extends Administrator {
                 [-14, -14, -14, -14, -12, -10, -8, -6, -4, -2],
                 [-14, -14, -14, -14, -14, -12, -10, -8, -6, -4],
             ];
-            $pointGagné = $PointsGagnant[$gagnant[0]->classementUser][$perdant[0]->classementUser] * $coeff;
-            $pointPerdu = $PointsPerdant[$perdant[0]->classementUser][$gagnant[0]->classementUser] * $coeff;
+            //les classements commencent au n°5 Les tableau commencent au n°0 donc je fais -5 pour avoir les bons index
+            $pointGagné = $PointsGagnant[$gagnant[0]->classementUser-5][$perdant[0]->classementUser-5] * $coeff;
+            $pointPerdu = $PointsPerdant[$perdant[0]->classementUser-5][$gagnant[0]->classementUser-5] * $coeff;
             $gagnantNouveauClassement = $gagnant[0]->classementProvisoireUser + $pointGagné;
             $perdantNouveauClassement = $perdant[0]->classementProvisoireUser + $pointPerdu;
             $this->user_model->update(['idUser' => $gagnant[0]->idUser], ['classementProvisoireUser' => $gagnantNouveauClassement]);
