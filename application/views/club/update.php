@@ -6,7 +6,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div>
-        <?php echo form_open('club/update/' . $club[0]->numClub); ?>
+        <?php echo form_open('club/update/' . $club[0]->numClub,'class="m-auto"'); ?>
         <h2>Modification d'un club</h2>
         <div class="form-group">
             <label for="update_nom_club" class="control-label">Club</label>

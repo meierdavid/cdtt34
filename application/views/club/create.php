@@ -6,7 +6,7 @@
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div> 
-        <?php echo form_open("club/create"); ?>
+        <?php echo form_open("club/create",'class="m-auto"'); ?>
         <h2>Création d'un club</h2>
         <div class="form-group">
             <label for="create_nom_club" class="control-label">Nom du club</label>
