@@ -1,5 +1,5 @@
 <div class="container" >
-    <div style=" margin-top: 20%">
+    <div style=" margin-top: 10%">
     <div class="row ml-auto">
         <?php echo form_open("welcome/connexion",'class="m-auto"'); ?>
         <p class="text-warning">Cette page de connexion est dédiée aux responsables départementaux</p>
