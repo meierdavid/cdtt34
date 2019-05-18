@@ -35,7 +35,7 @@
 
             <div id="saisie-gagnant" class="col-sm-6 col-lg-6 col-md-6 bg-light   border-white border-right">
                 <div class="" >
-                    <h1 class="text-success">Gagnant</h1>
+                    <h1 class="text-primary">Gagnant</h1>
                 </div>
                 <label  for="licence_gagnant" class="control-label">Licence</label>
 
