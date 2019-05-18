@@ -13,8 +13,7 @@
         <input id="inputPassword" class="form-control mb-1" type="password" name="password" value="" placeholder="Password" required />
 
         <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Connexion">
-        </form>
-        
+        </form>       
     </div>
     
     </div>

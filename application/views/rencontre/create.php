@@ -12,7 +12,11 @@
     <div class="form-group">
         <div class="row">
             <div class="mb-3">
-
+                <?php if(isset($message)){
+                                
+                                echo "<p class=\"text-warning\">".$message."</p>";
+                            }
+                ?>
                 <label class="h4" for="date_rencontre">* date :</label>
                 <input id="date_rencontre" class=" bg-light " name="date" type="date" value="<?php echo set_value('date'); ?>">
                 <div class="error notification text-danger is-danger"><?php echo form_error('date'); ?> </div>

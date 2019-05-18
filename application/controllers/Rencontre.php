@@ -108,7 +108,10 @@ class Rencontre extends Administrator {
             ];
             //calcule les points gagné par le vainqueur et perdu par l'autre joueur
             $points = $this->CalculPoints($this->input->post('numGagnant', TRUE), $this->input->post('numPerdant', TRUE), $coeff);
-            
+            if($points == NULL){
+                  $data['message'] = "Vous avez fait une erreur en saississant les informations sur les joueurs";
+                  $this->layout->view('rencontre/create', $data);
+            }
             $values['pointGagnant'] = $points['pointGagnant'];
             $values['pointPerdant'] = $points['pointPerdant'];
             $test = $this->rencontre_model->create($values);
@@ -186,39 +189,44 @@ class Rencontre extends Administrator {
         //          $PointsGagnant[6][5] = 2
         //Ces matrices correspondent aux calculs officiels des classements
         // du ping pong en Foyer Rural
-        $PointsGagnant = [
-            [3, 5, 10, 14, 14, 14, 14, 14, 14, 14],
-            [2, 3, 5, 10, 14, 14, 14, 14, 14, 14],
-            [1, 2, 3, 5, 10, 14, 14, 14, 14, 14],
-            [0, 1, 2, 3, 5, 10, 14, 14, 14, 14],
-            [0, 0, 1, 2, 3, 5, 10, 14, 14, 14],
-            [0, 0, 0, 1, 2, 3, 5, 10, 14, 14],
-            [0, 0, 0, 0, 1, 2, 3, 5, 10, 14],
-            [0, 0, 0, 0, 0, 1, 2, 3, 5, 10],
-            [0, 0, 0, 0, 0, 0, 1, 2, 3, 5],
-            [0, 0, 0, 0, 0, 0, 0, 1, 2, 3],
-        ];
-        $PointsPerdant = [
-            [-4, -2, -1, 0, 0, 0, 0, 0, 0, 0],
-            [-6, -4, -2, -1, 0, 0, 0, 0, 0, 0],
-            [-8, -6, -4, -2, -1, 0, 0, 0, 0, 0],
-            [-10, -8, -6, -4, -2, -1, 0, 0, 0, 0],
-            [-12, -10, -8, -6, -4, -2, -1, 0, 0, 0],
-            [-14, -12, -10, -8, -6, -4, -2, -1, 0, 0],
-            [-14, -14, -12, -10, -8, -6, -4, -2, -1, 0],
-            [-14, -14, -14, -12, -10, -8, -6, -4, -2, -1],
-            [-14, -14, -14, -14, -12, -10, -8, -6, -4, -2],
-            [-14, -14, -14, -14, -14, -12, -10, -8, -6, -4],
-        ];
-        $pointGagné = $PointsGagnant[$gagnant[0]->classementUser][$perdant[0]->classementUser] * $coeff;
-        $pointPerdu = $PointsPerdant[$perdant[0]->classementUser][$gagnant[0]->classementUser] * $coeff;
-        $gagnantNouveauClassement = $gagnant[0]->classementProvisoireUser + $pointGagné;
-        $perdantNouveauClassement = $perdant[0]->classementProvisoireUser + $pointPerdu;
-        $this->user_model->update(['idUser' => $gagnant[0]->idUser], ['classementProvisoireUser' => $gagnantNouveauClassement]);
-        $this->user_model->update(['idUser' => $perdant[0]->idUser], ['classementProvisoireUser' => $perdantNouveauClassement]);
-        //tableau [point du gagnant supplémentaire * coeff , point du perdant en moins * coeff ]
-        $points = ["pointGagnant" => $pointGagné, "pointPerdant" => $pointPerdu];
-        return $points;
+        if($gagnant != null && $perdant != null){
+            $PointsGagnant = [
+                [3, 5, 10, 14, 14, 14, 14, 14, 14, 14],
+                [2, 3, 5, 10, 14, 14, 14, 14, 14, 14],
+                [1, 2, 3, 5, 10, 14, 14, 14, 14, 14],
+                [0, 1, 2, 3, 5, 10, 14, 14, 14, 14],
+                [0, 0, 1, 2, 3, 5, 10, 14, 14, 14],
+                [0, 0, 0, 1, 2, 3, 5, 10, 14, 14],
+                [0, 0, 0, 0, 1, 2, 3, 5, 10, 14],
+                [0, 0, 0, 0, 0, 1, 2, 3, 5, 10],
+                [0, 0, 0, 0, 0, 0, 1, 2, 3, 5],
+                [0, 0, 0, 0, 0, 0, 0, 1, 2, 3],
+            ];
+            $PointsPerdant = [
+                [-4, -2, -1, 0, 0, 0, 0, 0, 0, 0],
+                [-6, -4, -2, -1, 0, 0, 0, 0, 0, 0],
+                [-8, -6, -4, -2, -1, 0, 0, 0, 0, 0],
+                [-10, -8, -6, -4, -2, -1, 0, 0, 0, 0],
+                [-12, -10, -8, -6, -4, -2, -1, 0, 0, 0],
+                [-14, -12, -10, -8, -6, -4, -2, -1, 0, 0],
+                [-14, -14, -12, -10, -8, -6, -4, -2, -1, 0],
+                [-14, -14, -14, -12, -10, -8, -6, -4, -2, -1],
+                [-14, -14, -14, -14, -12, -10, -8, -6, -4, -2],
+                [-14, -14, -14, -14, -14, -12, -10, -8, -6, -4],
+            ];
+            $pointGagné = $PointsGagnant[$gagnant[0]->classementUser][$perdant[0]->classementUser] * $coeff;
+            $pointPerdu = $PointsPerdant[$perdant[0]->classementUser][$gagnant[0]->classementUser] * $coeff;
+            $gagnantNouveauClassement = $gagnant[0]->classementProvisoireUser + $pointGagné;
+            $perdantNouveauClassement = $perdant[0]->classementProvisoireUser + $pointPerdu;
+            $this->user_model->update(['idUser' => $gagnant[0]->idUser], ['classementProvisoireUser' => $gagnantNouveauClassement]);
+            $this->user_model->update(['idUser' => $perdant[0]->idUser], ['classementProvisoireUser' => $perdantNouveauClassement]);
+            //tableau [point du gagnant supplémentaire * coeff , point du perdant en moins * coeff ]
+            $points = ["pointGagnant" => $pointGagné, "pointPerdant" => $pointPerdu];
+            return $points;
+        }
+        else{
+            return null;
+        }
     }
 
 }
