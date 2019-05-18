@@ -1,6 +1,6 @@
 
 
-<div class="container" align="left">
+<div class="container" >
     <div style=" margin-top: 20%">
     <div class="row ml-auto">
         <div class="notification is-danger">
@@ -16,7 +16,7 @@
 
 
         </div>
-        <div class="text-center"><button class="btn btn-primary" type="submit" >créer</button></div>
+        <div class="text-center"><button class="btn btn-primary" type="submit" >Enregistrer</button></div>
 
         </form>  
     </div>
