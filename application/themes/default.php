@@ -26,7 +26,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="<?php echo base_url(''); ?>" class="nav-link "> Accueil </a>
                     </li>
                     <li class="nav-item">
@@ -66,7 +66,7 @@
                         </li>
                     <?php } else { ?>
 
-                        <li class="nav-item ">
+                        <li class="nav-item right ">
                             <a href="<?php echo base_url('administrateur/deconnexion'); ?>" class="nav-link" >Déconnexion</a>
                         </li>
                     <?php } ?>
