@@ -1,8 +1,8 @@
 
 
-<div class="container login-container2" align="left">
+<div class="container" align="left">
     <div style=" margin-top: 20%">
-    <div class="row">
+    <div class="row ml-auto">
         <div class="notification is-danger">
             <?php echo validation_errors(); ?> 
         </div>
@@ -13,7 +13,7 @@
             <input id="update_nom_club" type="text" class="form-control" name="nomClub" value="<?php echo $club[0]->nomClub ?>" size="30" required /> 
         </div>
 
-        <div class="text-center"><input class="btnSubmit" type="submit" value="modifier" /></div>
+        <div class="text-center"><input class="btn btn-primary" type="submit" value="modifier" /></div>
 
         </form>  
     </div>

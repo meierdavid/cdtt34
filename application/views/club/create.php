@@ -1,6 +1,6 @@
 
 
-<div class="container login-container2" align="left">
+<div class="container" align="left">
     <div style=" margin-top: 20%">
     <div class="row ml-auto">
         <div class="notification is-danger">

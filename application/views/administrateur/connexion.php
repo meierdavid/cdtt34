@@ -1,4 +1,4 @@
-
+<div class="row">
     <div class="text-center mt-5 mb-5">
         <p>Cette page de connexion est dédiée </p>
         <p>aux responsables départemental</p>
@@ -14,6 +14,5 @@
         </div>
         <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Connexion">
         </form>
-
     </div>  
-
+</div>
