@@ -1,6 +1,6 @@
 <div class="row mt-5 mb-5">
-        <p class="text-warning text-center">Cette page de connexion est dédiée </p>
-        <p class="text-warning text-center">aux responsables départemental</p>
+        <p class="text-warning">Cette page de connexion est dédiée </p>
+        <p class="text-warning">aux responsables départemental</p>
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
         <?php echo form_open("welcome/connexion",'class="ml-5 mr-5 m-auto"'); ?>
         <div class="form-group">
