@@ -4,7 +4,7 @@
         <p>Cette page de connexion est dédiée </p>
         <p>aux responsables départemental</p>
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
-        <?php echo form_open("welcome/connexion"); ?>
+        <?php echo form_open("welcome/connexion",'class"ml-5 mr-5"'); ?>
         <div class="form-group">
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="email" id="inputEmail" class="form-control mb-1" name="identifiant" value=""  placeholder="Email address" required autofocus />
