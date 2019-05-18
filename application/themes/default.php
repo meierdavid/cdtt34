@@ -79,7 +79,7 @@
         </div>
         <?php 
         if($footer == true){ ?>
-        <footer class="page-footer font-small blue mt-5 mb-0">
+        <footer class="page-footer font-small mt-5 mb-0">
             <div class="text-center ">
                 <a> Nous contacter</a>
                 <p> adresse@email.com </p>
