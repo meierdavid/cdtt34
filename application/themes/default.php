@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" > 
     <head>
-        <title>Classement Hérault tenis de table</title>
+        <title>Classement Hérault tennis de table</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
@@ -79,16 +79,20 @@
         </div>
         <?php 
         if($footer == true){ ?>
-        <footer class="page-footer font-small blue mt-5 mb-0">
-            <div class="text-center ">
+        <footer class="container page-footer font-small blue mt-5 mb-0">
+            <div class="row">
+            <div class="col-4">
                 <a> Nous contacter</a>
                 <p> adresse@email.com </p>
             </div>
-            <div>
+            <div class="col-4">
                 <a>Mentions légales</a>
                 <p>hébergé par la société Heroku, Inc.</p>
+            </div>
+            <div class="col-4">
                 <p>650 7th Street San Francisco, CA 94103</p>
-                <p>Contact: https://www.heroku.com/contact </p>
+                <p>Contact: https://www.heroku.com/contact </p> 
+            </div>
             </div>
         </footer>
         <?php } ?>
@@ -96,4 +100,6 @@
     </body>
 
 </html>
+
+
 
