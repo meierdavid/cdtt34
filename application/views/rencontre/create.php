@@ -88,7 +88,7 @@
 
                 var html = '';
                 html += '<select class="btn mt-2 mb-2 btn-secondary bg-dark  dropdown-toggle" name="nomTournoi" id="select-tournoi" >';
-                html += '<option disabled selected value="">Selectionner un tournoi (facultatif)</option >';
+                html += '<option disabled selected value="">Sélectionner un tournoi (facultatif)</option >';
                 var i;
                 for (i = 0; i < data.length; i++) {
 

@@ -7,6 +7,7 @@
             <?php echo validation_errors(); ?> 
         </div> 
         <?php echo form_open('user/update/' . $user[0]->idUser,'class="m-auto"'); ?>
+        <h2>Modification d'un joueur</h2>
         <div class="form-group">
             <label for="update_num_licence" class="control-label">Numéro de licence</label>
             <input id="update_num_licence"  type="text" class="form-control" name="idUser"  value="<?php echo $user[0]->idUser ?>" size="30" required disabled /> 
@@ -36,7 +37,7 @@
             <input id="update_club" type="text" class="form-control" name="nomClub"  value="<?php echo $club[0]->nomClub ?>" size="30" required /> 
         </div>
 
-        <div class="text-center"><input class="btn-primary" type="submit" value="modifier" /></div>
+        <input class=" btn btn-primary" type="submit" value="Valider" />
 
         </form>  
     </div>
