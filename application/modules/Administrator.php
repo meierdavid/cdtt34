@@ -58,9 +58,13 @@ class Administrator extends CI_Controller {
                 get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_token, TRUE)) {
             $mail = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_name));
             $token = $this->encryption->decrypt(get_cookie($this->config->item('cookie_prefix') . $this->_cookie_id_token));
-            if ($this->administrator_model->validateToken($mail, $token) == FALSE)
+            if ($this->administrator_model->validateToken($mail, $token) == FALSE){
+                delete_cookie($this->$_cookie_id_name);
+                delete_cookie($this->$_cookie_id_token);  
                 redirect(base_url("welcome/connexion")); // Mauvais identifiant, ont redirige vers la page de connexion
-        }
+        
+            }
+            }
        elseif (($class == 'administrateur') || ($class == 'rencontre') || ($class == 'tournoi')) {
             redirect(base_url('welcome/fail')); //page d'
         } elseif (($method != "connexion" ) && ($method != 'liste') && ($method != 'joueurs') && ($method != 'index') && ($method != 'fail') && ($method != 'profil') && ($method != 'clubs')) {
