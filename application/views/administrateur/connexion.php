@@ -2,7 +2,7 @@
     <div style=" margin-top: 10%">
     <div class="row ml-auto">
         <?php echo form_open("welcome/connexion",'class="m-auto"'); ?>
-        <p class="text-warning">Cette page de connexion est dédiée aux responsables départementaux</p>
+        <p class="text-danger">Cette page de connexion est dédiée aux responsables départementaux</p>
 
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
