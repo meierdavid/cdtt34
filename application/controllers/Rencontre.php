@@ -71,7 +71,7 @@ class Rencontre extends Administrator {
             $values['numTournoi'] = $this->tournoi_model->find(['nomTournoi' => htmlspecialchars($this->input->post('nomTournoi', TRUE))])[0]->numTournoi;
 
             switch ($this->input->post('nomTournoi', TRUE)):
-                case 'Criterium National':
+                case 'Critérium National':
                     $coeff = 3;
                     break;
                 case 'Inter-départemental':
