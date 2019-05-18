@@ -112,13 +112,15 @@ class Rencontre extends Administrator {
                   $data['message'] = "Vous avez fait une erreur en saississant les informations sur les joueurs";
                   $this->layout->view('rencontre/create', $data);
             }
-            $values['pointGagnant'] = $points['pointGagnant'];
-            $values['pointPerdant'] = $points['pointPerdant'];
-            $test = $this->rencontre_model->create($values);
-            if ($test) {
-                $this->liste();
-            } else {
-                $this->layout->view('rencontre/create', $data);
+            else{
+                $values['pointGagnant'] = $points['pointGagnant'];
+                $values['pointPerdant'] = $points['pointPerdant'];
+                $test = $this->rencontre_model->create($values);
+                if ($test) {
+                    $this->liste();
+                } else {
+                    $this->layout->view('rencontre/create', $data);
+                }
             }
         }
     }
