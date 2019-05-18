@@ -1,5 +1,4 @@
-<div class="row justify-content-md-center mt-5 mb-5">
-
+<div class="row mt-5 mb-5">
     <div class="text-center">
         <p>Cette page de connexion est dédiée </p>
         <p>aux responsables départemental</p>
@@ -17,8 +16,4 @@
         </form>
 
     </div>
-
-
-
-
 </div>
