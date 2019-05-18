@@ -16,7 +16,7 @@
 
 
         </div>
-        <div class="text-center"><button class="btn-primary" type="submit" >créer</button></div>
+        <div class="text-center"><button class="btn btn-primary" type="submit" >créer</button></div>
 
         </form>  
     </div>

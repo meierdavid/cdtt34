@@ -13,7 +13,7 @@
             <input id="update_nom_tournoi" type="text" class="form-control" name="nomTournoi" value="<?php echo $tournoi[0]->nomTournoi ?>" size="30" required /> 
         </div>
 
-        <div class="text-center"><input class="btnSubmit btn-primary" type="submit" value="Valider" /></div>
+        <div class="text-center"><input class="btn btn-primary" type="submit" value="Valider" /></div>
 
         </form>  
     </div>

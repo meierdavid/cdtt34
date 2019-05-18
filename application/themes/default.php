@@ -80,9 +80,15 @@
         <?php 
         if($footer == true){ ?>
         <footer class="page-footer font-small blue mt-5 mb-0">
-            <div class=" text-center ">
+            <div class="text-center ">
                 <a> Nous contacter</a>
                 <p> adresse@email.com </p>
+            </div>
+            <div class="text-center ">
+                <a>Mentions légales:</a>
+                <p>hébergé par la société Heroku, Inc.</p>
+                <p>650 7th Street San Francisco, CA 94103</p>
+                <p>Contact: https://www.heroku.com/contact </p>
             </div>
         </footer>
         <?php } ?>
