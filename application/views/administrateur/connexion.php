@@ -1,4 +1,4 @@
-<div class="row mt-5 mb-5">
+<div class="row mt-5 mb-5 text-center">
         <p class="text-warning">Cette page de connexion est dédiée </p>
         <p class="text-warning">aux responsables départemental</p>
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
