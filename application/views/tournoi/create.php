@@ -13,7 +13,7 @@
                 <input id="create_nom_tournoi" type="text" class="form-control" name="nomTournoi"  value="" size="30" required /> 
             </div>
 
-            <div class="text-center"><input class="btn-primary" type="submit" value="Enregistrer" /></div>
+            <div class="text-center"><input class="btn btn-primary" type="submit" value="Enregistrer" /></div>
 
             </form>  
         </div>

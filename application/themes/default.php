@@ -66,7 +66,7 @@
                         </li>
                     <?php } else { ?>
 
-                        <li class="nav-item right ">
+                        <li class="nav-item">
                             <a href="<?php echo base_url('administrateur/deconnexion'); ?>" class="nav-link" >Déconnexion</a>
                         </li>
                     <?php } ?>
