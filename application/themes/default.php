@@ -82,7 +82,7 @@
         <footer class="page-footer font-small blue mt-5 mb-0">
             <div class="text-center ">
                 <a> Nous contacter</a>
-                <p> adresse@email.com </p>
+                <p> cdtt34@gmail.com </p>
             </div>
         </footer>
         <?php } ?>

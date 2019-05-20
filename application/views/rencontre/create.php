@@ -38,9 +38,7 @@
                     <h1 class="text-primary">Gagnant</h1>
                 </div>
                 <label  for="licence_gagnant" class="control-label">Licence</label>
-
                 <input id="licence_gagnant" type="number" class="form-control " name="numGagnant"  value="<?php echo set_value('numGagnant'); ?>" size="30" required />
-
                 <label  for="recherche-nom-Gagnant" class="control-label">Nom</label>
                 <input id="recherche-nom-Gagnant" type="text" class="form-control recherche-nom" name="nomGagnant"  value="<?php echo set_value('nomGagnant'); ?>" size="30" required />
                 <div class="error notification text-danger is-danger "><?php echo form_error('nomGagnant'); ?> </div>
